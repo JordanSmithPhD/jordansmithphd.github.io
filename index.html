@@ -1,0 +1,1887 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Schedule</title>
+    
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .schedule {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .day-section {
+            margin-bottom: 30px;
+        }
+        .day-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .event {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .event:last-child {
+            border-bottom: none;
+        }
+        .event-time, .event-room, .event-speakers, 
+        .event-topic, .event-content-type {
+            font-size: 14px;
+            color: #555;
+        }
+        .event-title a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .event-title a:hover {
+            text-decoration: underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    
+<script>
+    function searchSchedule() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const events = document.querySelectorAll('.event');
+
+        events.forEach(event => {
+            const title = event.querySelector('.event-title')?.textContent.toLowerCase() || "";
+            const description = event.querySelector('.collapsible + .content')?.textContent.toLowerCase() || "";
+            const speakers = event.querySelector('.event-speakers')?.textContent.toLowerCase() || "";
+
+            if (title.includes(query) || description.includes(query) || speakers.includes(query)) {
+                event.classList.remove('hidden');
+            } else {
+                event.classList.add('hidden');
+            }
+        });
+    }
+</script>
+<script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="schedule">
+        <div class="search-bar">
+            <input type="text" id="searchInput" onkeyup="searchSchedule()" placeholder="Search for presentations, speakers, or topics...">
+        </div>
+<div class="day-section"><div class="day-title">Mon</div>
+        <div class="event">
+            <div class="event-time">09:00am - 10:00am</div>
+            <div class="event-title"><a href="#">PLENARY: Bob Ratcliffe, Former Division Chief, Conservation and Outdoor Recreation Programs, NPS</a></div>
+            <div class="event-room">Room: Star Hall</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-e2110ae8-4cdf-47a0-97f2-4a99d813b166')">Bob Ratcliffe</a>
+            </div>
+        </div>
+        
+        <div id="modal-e2110ae8-4cdf-47a0-97f2-4a99d813b166" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-e2110ae8-4cdf-47a0-97f2-4a99d813b166')">&times;</span>
+                <h2>Bob Ratcliffe</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> </p>
+                <p><strong>Bio:</strong> Bob advises and consults for a number of national and conservation organizations, foundations and professional societies involved in land and resource conservation, public health, outdoor recreation access and management. He is currently serving as a board member for the Partnership of the National Trails System and the National Wilderness Stewardship Alliance. Bob has supported and advised numerous outdoor organizations, including the Outdoor Alliance for Kids, the Society of Outdoor Recreation Professionals, River Management Society, the Foundation for America’s Public Lands, the National Park Foundation, the Outdoor Recreation Roundtable, National Association of State Park Directors, Outdoor Alliance, National Coalition for Outdoor Access, American Trails, Active Living, Groundwork, Recreate Responsibly and many other national non-profit organizations, alliances and businesses.
+ 
+Previously, Bob was the Division Chief for the National Park Service’s Conservation, Recreation and Community Assistance Programs, which included oversight of the Rivers, Trails and Conservation Assistance (RTCA) Program, National Trails System (NTS) and National Wild and Scenic Rivers System (WSRS) among other programs. During his time at NPS he led the establishment of the first NPS Office of Outdoor Recreation and worked with the White House and the Council on Environmental Quality, Centers for Disease Control, and other departments to create the Federal Interagency Council on Outdoor Recreation (FICOR) that helps coordinate and enhance the collective impact of federal agencies on sustainable recreation, supporting community and public health, and enhancing equity and access to the outdoors for all.
+ 
+Bob also served 24 years with the Bureau of Land Management (BLM) in a variety of field and national leadership roles including over a dozen years as Deputy Assistant Director for Resources and Planning, Acting Deputy Assistant Director for the National Landscape Conservation System, and the Division Chief for Recreation and Visitor Services. Bob helped establish the National Landscape Conservation System within the BLM. A longtime leader of the National Trails and the National Wild and Scenic Rivers Systems, Bob has spent his career promoting sustainable trail development, restoring and protecting rivers, responsible recreation and increased investment in recreation management and infrastructure in parks and on public lands.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/ad8f-400o400o1-BD2v2yN1tkrWoiNPwm7TA8.png" alt="Bob Ratcliffe's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:30am - 11:00am</div>
+            <div class="event-title"><a href="#">Education and Stewardship of the Shipwrecks and Maritime Tales of the Lake Erie Coastal Ohio Trail</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-d5d3e29a-7ed3-4da7-b19d-15841e7fcfb0')">Joe Lucente</a>
+            </div>
+        </div>
+        
+        <div id="modal-d5d3e29a-7ed3-4da7-b19d-15841e7fcfb0" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-d5d3e29a-7ed3-4da7-b19d-15841e7fcfb0')">&times;</span>
+                <h2>Joe Lucente</h2>
+                <p><strong>Email:</strong> jel801971@gmail.com</p>
+                <p><strong>Title/Organization:</strong> Ohio State University and Ohio Sea Grant College Program</p>
+                <p><strong>Bio:</strong> Lucente is a faculty member in the College of Food, Agricultural and Environmental Sciences with primary assignment responsibility to the Ohio Sea Grant College Program in the Ohio Lake Erie watershed composed of thirty-four counties in Ohio. The Ohio Sea Grant College Program is a statewide program that supports greater knowledge and stewardship of Lake Erie and the Great Lakes through research, education and outreach. It is part of the National Oceanic Atmospheric Administration (NOAA) Sea Grant College Program, which includes thirty-three state programs located in every coastal and Great Lakes state, Puerto Rico and Guam. Support for the Ohio Sea Grant College Program is provided by NOAA Sea Grant, the State of Ohio, The Ohio State University and Ohio State University Extension.
+
+Lucente's educational programming and delivery is designed to provide education and research in community and economic development in collaboration with Lake Erie watershed clientele (local government organizations, non-profit organizations, private sector corporations and general citizens), state and federal agencies through a combination of research, outreach and education in partnership with academia, government and the private sector focusing on the economy, society and environment.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/0333-400o400o1-7kM14RBEEhYaY5BLVhH9R7.jpg" alt="Joe Lucente's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:30am - 10:55am</div>
+            <div class="event-title"><a href="#">Estimating Visitation of Long-Distance Public Lands - A Case Study of the Blue Ridge Parkway</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-023cffb8-c083-4602-ad0b-cdbd0c0c4c9c')">Jake Jorgenson</a>
+            </div>
+        </div>
+        
+        <div id="modal-023cffb8-c083-4602-ad0b-cdbd0c0c4c9c" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-023cffb8-c083-4602-ad0b-cdbd0c0c4c9c')">&times;</span>
+                <h2>Jake Jorgenson</h2>
+                <p><strong>Email:</strong> jake@rrcassociates.com</p>
+                <p><strong>Title/Organization:</strong> COO, RRC Associates</p>
+                <p><strong>Bio:</strong> Jake serves as RRC’s Chief Operating Officer and oversees all project management and research for the firm. He possesses extensive experience in recreation and tourism research, visitor behaviors, and visitor management. His personal philosophy is grounded in providing practical solutions through research using both traditional and innovative methodologies. Since 2020, Jake has served as the lead social scientist for the National Park Service’s nationwide socioeconomic research contract and has first-hand knowledge of the challenges and issues faced by land managers, tourism operators, and local tourism-based communities. Jake has led a variety of quantitative and qualitative research studies using methodologies ranging from surveys, experimental design, interviews, and secondary analysis.</p>
+                <p><strong>Website:</strong> <a href="https://www.rrcassociates.com" target="_blank">https://www.rrcassociates.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/6594-400o400o1-RoZgyzCX7jfGSKffDJvUpq.jpg" alt="Jake Jorgenson's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:55am - 11:20am</div>
+            <div class="event-title"><a href="#">Monitoring Visitor Activity and Informal Trail Disturbance in Yosemite Valley Meadows</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-d1f506b2-8ca8-457c-830b-2211882e6d75')">Jeffrey Jenkins</a>
+            </div>
+        </div>
+        
+        <div id="modal-d1f506b2-8ca8-457c-830b-2211882e6d75" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-d1f506b2-8ca8-457c-830b-2211882e6d75')">&times;</span>
+                <h2>Jeffrey Jenkins</h2>
+                <p><strong>Email:</strong> jeff.jenkins@ucmerced.edu</p>
+                <p><strong>Title/Organization:</strong> University of California, Merced</p>
+                <p><strong>Bio:</strong> Jeff Jenkins is faculty of Management of Complex Systems in the School of Engineering and affiliate with the Sierra Nevada Research Institute and National Park Institute at UC Merced.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/7229-400o400o1-UPBnYfmeZRW5Y5jK7EpGLy.png" alt="Jeffrey Jenkins's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:00am - 11:30am</div>
+            <div class="event-title"><a href="#">National Park Visitors' Expectations, Experience and Responsible Behaviors</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-02b64fa6-4f8a-430d-bd57-a87d0be0b49a')">Kelly Goonan</a>
+            </div>
+        </div>
+        
+        <div id="modal-02b64fa6-4f8a-430d-bd57-a87d0be0b49a" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-02b64fa6-4f8a-430d-bd57-a87d0be0b49a')">&times;</span>
+                <h2>Kelly Goonan</h2>
+                <p><strong>Email:</strong> kellygoonan@suu.edu</p>
+                <p><strong>Title/Organization:</strong> Associate Professor of Outdoor Recreation in Parks and Tourism, Southern Utah University</p>
+                <p><strong>Bio:</strong> Dr. Kelly Goonan is an Associate Professor of Outdoor Recreation in Parks and Tourism and the Associate Dean of the College of Health Sciences at Southern Utah University in Cedar City, UT. She has a Ph.D. in Human Dimensions of Ecosystem Science and Management from Utah State University. Her research interests include assessment and monitoring of recreation resources, visitor experience, and visitor use management. She teaches courses in recreation ecology; recreation resources management; recreation social science; and park, recreation, and tourism professions at SUU. Her favorite outdoor activities include boating, camping, and exploring the outdoors with her 4-year old daughter.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kelly-goonan-894ba47/" target="_blank">https://www.linkedin.com/in/kelly-goonan-894ba47/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/ca2c-400o400o1-hDe8cEgx8iyN8zYrrsdKqo.jpg" alt="Kelly Goonan's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:20am - 11:45am</div>
+            <div class="event-title"><a href="#">We Built It, They Came: Managing the Success of Moab's Trails</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-64abbd36-3d0f-4d03-93a6-0acb54fb6e00')">Madeline  Logowitz</a>
+            </div>
+        </div>
+        
+        <div id="modal-64abbd36-3d0f-4d03-93a6-0acb54fb6e00" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-64abbd36-3d0f-4d03-93a6-0acb54fb6e00')">&times;</span>
+                <h2>Madeline  Logowitz</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> </p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Madeline  Logowitz's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:30am - 12:00pm</div>
+            <div class="event-title"><a href="#">Avifauna Observations and Access in the Sacramento-San Joaquin Delta</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-00cdbcaa-9342-4c52-a9f3-d92c26cb6706')">Isaac Sanchez</a>
+            </div>
+        </div>
+        
+        <div id="modal-00cdbcaa-9342-4c52-a9f3-d92c26cb6706" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-00cdbcaa-9342-4c52-a9f3-d92c26cb6706')">&times;</span>
+                <h2>Isaac Sanchez</h2>
+                <p><strong>Email:</strong> isanchezterrazas@ucmerced.edu</p>
+                <p><strong>Title/Organization:</strong> PhD student: Management of Complex Systems; UC Merced</p>
+                <p><strong>Bio:</strong> Second year PhD student at the department of Management of Complex Systems: University of California, Merced. Focusing on recreation, gateway community tourism, and socio-ecological justice in dynamic human-nature coupled frameworks.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/8a37-400o400o1-792g4biQhMdyby3seHbDUV.png" alt="Isaac Sanchez's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:45am - 12:10pm</div>
+            <div class="event-title"><a href="#">BLM Moab Trail Accessibility and E-bike Opportunities</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-b84a68a4-8901-40ad-b973-0bf972c5ac99')">Keri Nelson</a>
+            </div>
+        </div>
+        
+        <div id="modal-b84a68a4-8901-40ad-b973-0bf972c5ac99" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-b84a68a4-8901-40ad-b973-0bf972c5ac99')">&times;</span>
+                <h2>Keri Nelson</h2>
+                <p><strong>Email:</strong> kanelson@blm.gov</p>
+                <p><strong>Title/Organization:</strong> Bureau of Land Management - Outdoor Recreation Planner</p>
+                <p><strong>Bio:</strong> National Park Service for the Southeast Utah Group of parks, 7 years as a Law Enforcement Park Ranger and 6 years as the Backcountry and Wilderness Coordinator
+Bureau of Land Management, Moab Field Office, 2 years Outdoor Recreation Planner</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/7aef-400o400o1-9k8fjpvHjhLEDAq4HJbT6e.jpg" alt="Keri Nelson's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 01:45pm</div>
+            <div class="event-title"><a href="#">Communicate, Educate, and Inform Where Visitors are Planning their Adventures</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-5dd10889-f2c8-4b11-8534-69b809239958')">Pitt Grewe</a>
+            </div>
+        </div>
+        
+        <div id="modal-5dd10889-f2c8-4b11-8534-69b809239958" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-5dd10889-f2c8-4b11-8534-69b809239958')">&times;</span>
+                <h2>Pitt Grewe</h2>
+                <p><strong>Email:</strong> pitt.grewe@alltrails.com</p>
+                <p><strong>Title/Organization:</strong> AllTrails- Head of Public Lands Program</p>
+                <p><strong>Bio:</strong> Pitt is helping land managers reach AllTrails users with critical information and get important trail use data in order to protect our public lands.  Before joining AllTrails, Pitt served as the Director of the Division of Outdoor Rec.  in Utah.</p>
+                <p><strong>Website:</strong> <a href="https://publiclands.alltrails.com/" target="_blank">https://publiclands.alltrails.com/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pittgrewe/" target="_blank">https://www.linkedin.com/in/pittgrewe/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/47c3-400o400o1-7jTikCmiqPGUFeMV2xHDeo.jpg" alt="Pitt Grewe's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 01:45pm</div>
+            <div class="event-title"><a href="#">E-Bikes on Public Lands: Applying Research to Decision Making</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-208c17aa-e431-48ea-b5ef-149f0abb4b00, 12014411-fb6d-4ad2-a642-56838f1a6038')">Jonah Chiarenza</a>
+            </div>
+        </div>
+        
+        <div id="modal-208c17aa-e431-48ea-b5ef-149f0abb4b00, 12014411-fb6d-4ad2-a642-56838f1a6038" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-208c17aa-e431-48ea-b5ef-149f0abb4b00, 12014411-fb6d-4ad2-a642-56838f1a6038')">&times;</span>
+                <h2>Jonah Chiarenza</h2>
+                <p><strong>Email:</strong> jonah.chiarenza@dot.gov</p>
+                <p><strong>Title/Organization:</strong> Transportation Policy Analyst | USDOT Volpe Center</p>
+                <p><strong>Bio:</strong> Jonah Chiarenza is a transportation planner with over 20 years of experience in public, private, and non-profit planning, design, and engineering organizations. At the U.S. DOT Volpe Center, Jonah develops strategies for national policy and conducts research on innovation in transportation topics on behalf of the Federal Highway Administration, National Park Service, U.S. Forest Service, and Bureau of Land Management.
+
+Topics include safety and access with a focus on people who walk, bike, and roll; micromobility, e-bikes, and complete streets; asset management, performance management, deferred maintenance; and network analysis and data related to transportation user behavior and infrastructure.</p>
+                <p><strong>Website:</strong> <a href="https://www.volpe.dot.gov/" target="_blank">https://www.volpe.dot.gov/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/volpe-the-national-transportation-systems-center/" target="_blank">https://www.linkedin.com/company/volpe-the-national-transportation-systems-center/</a></p>
+                <p><strong>Twitter:</strong> <a href="https://x.com/volpeusdot" target="_blank">https://x.com/volpeusdot</a></p>
+                <img src="https://sessionize.com/image/9d4b-400o400o1-Spy4ufmzmNSBeCxhLwWDcr.jpg" alt="Jonah Chiarenza's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 01:45pm</div>
+            <div class="event-title"><a href="#">E-Bikes on Public Lands: Applying Research to Decision Making</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-208c17aa-e431-48ea-b5ef-149f0abb4b00, 12014411-fb6d-4ad2-a642-56838f1a6038')">Seth English-Young</a>
+            </div>
+        </div>
+        
+        <div id="modal-208c17aa-e431-48ea-b5ef-149f0abb4b00, 12014411-fb6d-4ad2-a642-56838f1a6038" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-208c17aa-e431-48ea-b5ef-149f0abb4b00, 12014411-fb6d-4ad2-a642-56838f1a6038')">&times;</span>
+                <h2>Seth English-Young</h2>
+                <p><strong>Email:</strong> seth.english-young@dot.gov</p>
+                <p><strong>Title/Organization:</strong> Planning Team Lead - FHWA Western Federal Lands </p>
+                <p><strong>Bio:</strong> Seth English-Young has over 20 years of experience in transportation and land use planning. His work at Federal Highway Administration focuses on improving access to federal lands. He is currently leading a research project with the US DOT Volpe Center on e-bikes in public lands. He holds a Master of Urban Planning degree from the NYU Wagner Graduate School of Public Service. In his free time he enjoys traveling, most things that get him outdoors, and watching his kids play whatever sport is currently in season.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/0579-400o400o1-Q7N3ikP92UtgpCrq2tp12v.jpg" alt="Seth English-Young's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:45pm - 02:05pm</div>
+            <div class="event-title"><a href="#">FIELD VISIT pre-trip presentation: Collaboration on the Colorado</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-b84a68a4-8901-40ad-b973-0bf972c5ac99')">Keri Nelson</a>
+            </div>
+        </div>
+        
+        <div id="modal-b84a68a4-8901-40ad-b973-0bf972c5ac99" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-b84a68a4-8901-40ad-b973-0bf972c5ac99')">&times;</span>
+                <h2>Keri Nelson</h2>
+                <p><strong>Email:</strong> kanelson@blm.gov</p>
+                <p><strong>Title/Organization:</strong> Bureau of Land Management - Outdoor Recreation Planner</p>
+                <p><strong>Bio:</strong> National Park Service for the Southeast Utah Group of parks, 7 years as a Law Enforcement Park Ranger and 6 years as the Backcountry and Wilderness Coordinator
+Bureau of Land Management, Moab Field Office, 2 years Outdoor Recreation Planner</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/7aef-400o400o1-9k8fjpvHjhLEDAq4HJbT6e.jpg" alt="Keri Nelson's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        </div><div class="day-section"><div class="day-title">Tue</div>
+        <div class="event">
+            <div class="event-time">09:00am - 10:00am</div>
+            <div class="event-title"><a href="#">PLENARY: Michelle Kerns, Superintendent, Glen Canyon National Recreation Area</a></div>
+            <div class="event-room">Room: Star Hall</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6e8e74eb-cbfb-4cc3-8723-85775193730d')">Michelle Kerns</a>
+            </div>
+        </div>
+        
+        <div id="modal-6e8e74eb-cbfb-4cc3-8723-85775193730d" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6e8e74eb-cbfb-4cc3-8723-85775193730d')">&times;</span>
+                <h2>Michelle Kerns</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> </p>
+                <p><strong>Bio:</strong> Michelle and the team she leads at Glen Canyon NRA have faced many challenges over the last three years with the loss of impounded water, and access being compromised at times. They have faced these challenges head on, and she is extremely proud of the team's ability to adapt to these changing conditions while ensuring that public access to these special places remains a top priority.
+
+Michelle says: "I have enjoyed the challenge in this position of relationship building with partners. It is extremely satisfying to find common ground to work together on. Often the most challenging issues bring out the greatest potential to collaborate. I think my superpower working in the NPS is navigating the funding process and connecting projects with funds. I like to make “more” out of the resources we have and understanding the boundaries of our government budget process and not being afraid to make the ask when appropriate. I have received career advice from two of my personal heroes. The first was from a deputy regional director, when I shared with him a career goal early in my journey and he told me to aim higher. The second was from a former Chief Ranger; when he once told me to “give it a year” after I had transferred from Yellowstone to Rocky Mountain NP and was feeling a bit homesick. I have leaned on that advice many times over the years.  How much can change if you only allow things some time and aim high!
+
+"I was born and raised in Powell, Wyoming and it is not lost on me that my hometown was also named after John Wesley Powell, for which Lake Powell was named. I have now had the privilege to work in five national parks in three different regions.  I enjoy staying in touch with co-workers and colleagues all over the country.  I get inspiration hearing about the great work they are doing in their park units. My husband and I reside in Page, Arizona with our Shih Tzu named 'Winston'."</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/4583-400o400o1-B1thz3ST5yunaSqjsGubiB.jpg" alt="Michelle Kerns's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 10:55am</div>
+            <div class="event-title"><a href="#">Is the Recreation Opportunity Spectrum Still Relevant?</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6c840310-5a9e-4e97-a7c6-c60b3f5f9afa')">Lee Cerveny</a>
+            </div>
+        </div>
+        
+        <div id="modal-6c840310-5a9e-4e97-a7c6-c60b3f5f9afa" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6c840310-5a9e-4e97-a7c6-c60b3f5f9afa')">&times;</span>
+                <h2>Lee Cerveny</h2>
+                <p><strong>Email:</strong> lee.cerveny@usda.gov</p>
+                <p><strong>Title/Organization:</strong> USDA Forest Service, Pacific Northwest Research Station</p>
+                <p><strong>Bio:</strong> Lee Cerveny is a Research Social Scientist with the USFS Pacific Northwest Research Station based in Seattle, WA.   Her work focuses on sustainable recreation, equitable access to public lands, nonrecreational camping, and post-fire recreation.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/f68c-400o400o1-J5LVdkdft7GLR4atbSLD5s.jpg" alt="Lee Cerveny's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 11:10am</div>
+            <div class="event-title"><a href="#">Working with Visitor Use Managers to Support Science-informed Decision Making</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">Susan Sidder</a>
+            </div>
+        </div>
+        
+        <div id="modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">&times;</span>
+                <h2>Susan Sidder</h2>
+                <p><strong>Email:</strong> susan_sidder@nps.gov</p>
+                <p><strong>Title/Organization:</strong> Visitor Use Management Program Manager, Glacier National Park</p>
+                <p><strong>Bio:</strong> Susie Sidder is this Visitor Use Management Program Manager at Glacier National Park, Montana, USA. Since joining Glacier in 2022, Susie has worked to grow a visitor use management program at the park through hiring internal staff, engaging in research partnerships, working with interagency collaborators, and mentoring student groups. Susie earned a Ph.D. in Forestry from Oregon State University, where she focused on predictive geospatial visitor use monitoring, and an M.S. in Natural Resources from University of Idaho, where she studied changing patterns in wilderness day use. She enjoys mountain biking, gardening, and enjoying long summer days with her husband, children, and dog in Montana.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/8362-400o400o1-DgEW8yUF6iG2oNjbgwWasM.png" alt="Susan Sidder's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 11:10am</div>
+            <div class="event-title"><a href="#">Working with Visitor Use Managers to Support Science-informed Decision Making</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">Amy  Tendick</a>
+            </div>
+        </div>
+        
+        <div id="modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">&times;</span>
+                <h2>Amy  Tendick</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> National Park Service, Southeast Utah Group, Visitor Use Planner</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Amy  Tendick's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 11:10am</div>
+            <div class="event-title"><a href="#">Working with Visitor Use Managers to Support Science-informed Decision Making</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">Jenn  Newton</a>
+            </div>
+        </div>
+        
+        <div id="modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">&times;</span>
+                <h2>Jenn  Newton</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Grand Teton National Park, Social Scientist</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Jenn  Newton's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 11:10am</div>
+            <div class="event-title"><a href="#">Working with Visitor Use Managers to Support Science-informed Decision Making</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">Kelly  Wood</a>
+            </div>
+        </div>
+        
+        <div id="modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">&times;</span>
+                <h2>Kelly  Wood</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Bryce Canyon National Park, Park Planner</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Kelly  Wood's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 11:10am</div>
+            <div class="event-title"><a href="#">Working with Visitor Use Managers to Support Science-informed Decision Making</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">Susan  McPartland</a>
+            </div>
+        </div>
+        
+        <div id="modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6b77d950-cb20-43b6-b117-c603e1dde616, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee, de6abe21-b85d-410c-bbb7-0c754b7eb4d5, 647e556c-b904-42db-b0be-5bdac9c64589, 39bdef9e-2b6f-4f51-865b-7e323cf7d38c')">&times;</span>
+                <h2>Susan  McPartland</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Zion National Park, Visitor Use Manager</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Susan  McPartland's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:55am - 11:25am</div>
+            <div class="event-title"><a href="#">Social-Ecological Systems: Opportunities for a Linked Approach to Outdoor Recreation Management</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">Anna Miller</a>
+            </div>
+        </div>
+        
+        <div id="modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">&times;</span>
+                <h2>Anna Miller</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Utah State University</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Anna Miller's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:55am - 11:25am</div>
+            <div class="event-title"><a href="#">Social-Ecological Systems: Opportunities for a Linked Approach to Outdoor Recreation Management</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">Lane Arthur</a>
+            </div>
+        </div>
+        
+        <div id="modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">&times;</span>
+                <h2>Lane Arthur</h2>
+                <p><strong>Email:</strong> lanearthur2018@gmail.com</p>
+                <p><strong>Title/Organization:</strong> Utah State University</p>
+                <p><strong>Bio:</strong> Lane Arthur is a passionate Ecology graduate student at Utah State University, where he is pursuing a master’s degree with a focus on human-wildlife interactions. His research is dedicated to exploring the complex relationships between humans and wildlife, aiming to find sustainable solutions that balance conservation efforts with human activity. Lane’s academic work combines rigorous research with extensive fieldwork, allowing him to contribute valuable insights to ecological and environmental studies.
+
+As an alum of the University of Montana with a dual major in Parks, Tourism, and Recreation Management (B.S.R.M.) & Wildlife Biology (B.S.W.B), he was able to explore a lot of these human-wildlife interactions within his studies. Additionally, his Northern Rockies Outdoor Leadership Certificate from the College of Forestry and Conservation has given him experience in what it looks like to lead in the outdoors.
+
+Outside of his academic pursuits, Lane enjoys running, biking, hiking, and hunting - outdoor activities that deepen his appreciation for the natural world. These experiences also inspire his commitment to better understanding how human behavior impacts wildlife and ecosystems. 
+
+Outside of his academic work, Lane is known for his caring nature and loyalty to his friends and family. He is committed to his faith, seeking accountability and growth in both his personal and professional life. Lane is always looking for opportunities to learn and explore new ideas. He also loves meeting new people and getting to know their stories, so please feel free to reach out to him about anything! :)</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/larthur/" target="_blank">https://www.linkedin.com/in/larthur/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/218f-400o400o1-aLPe4nwPLBmJAJsJdbGjpn.jpg" alt="Lane Arthur's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:55am - 11:25am</div>
+            <div class="event-title"><a href="#">Social-Ecological Systems: Opportunities for a Linked Approach to Outdoor Recreation Management</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">Meg Stone</a>
+            </div>
+        </div>
+        
+        <div id="modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">&times;</span>
+                <h2>Meg Stone</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Utah State University</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Meg Stone's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:55am - 11:25am</div>
+            <div class="event-title"><a href="#">Social-Ecological Systems: Opportunities for a Linked Approach to Outdoor Recreation Management</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">Georgie Corkery</a>
+            </div>
+        </div>
+        
+        <div id="modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-9f116a98-d588-4c23-a618-b1e4471df60a, 952140d9-2a05-43b3-942d-84286da60cca, eb6d28ac-a381-407f-ab62-bc995253ccae, ea7e962f-781f-4101-b3e6-a7c054d48814')">&times;</span>
+                <h2>Georgie Corkery</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Utah State University</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Georgie Corkery's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:10am - 11:55am</div>
+            <div class="event-title"><a href="#">The Gap We Fill: Building Public and Political Will for Managing Access at National Parks</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-4a13d92f-dea5-4a24-9e02-3936678bd850')">Cassidy Jones</a>
+            </div>
+        </div>
+        
+        <div id="modal-4a13d92f-dea5-4a24-9e02-3936678bd850" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-4a13d92f-dea5-4a24-9e02-3936678bd850')">&times;</span>
+                <h2>Cassidy Jones</h2>
+                <p><strong>Email:</strong> cjones@npca.org</p>
+                <p><strong>Title/Organization:</strong> Senior Visitation Program Manager, National Parks Conservation Association</p>
+                <p><strong>Bio:</strong> Cassidy Jones guides the National Parks Conservation Association's (NPCA's) work on visitor use management issues, drawing on a rich background in crowding and congestion policy solutions. Cassidy also works on efforts to make parks welcoming and inclusive and enjoys bringing people together as a facilitator and convenor. Before NPCA, Cassidy worked for the National Park Service as a park ranger at Timpanogos Cave National Monument and as a graduate research assistant while pursuing her master’s degree in Parks, Recreation and Tourism at the University of Utah. Born and raised in Utah, Cassidy loves slickrock, snow and sleeping under dark skies.</p>
+                <p><strong>Website:</strong> <a href="https://www.npca.org/" target="_blank">https://www.npca.org/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/0fba-400o400o1-Mjy2FdCdVgXnN4sfYsevoj.jpg" alt="Cassidy Jones's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:25am - 11:55am</div>
+            <div class="event-title"><a href="#">Management and Community Facilitators to Address Constraints to Participation in Outdoor Recreation</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb')">Wayde Morse</a>
+            </div>
+        </div>
+        
+        <div id="modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb')">&times;</span>
+                <h2>Wayde Morse</h2>
+                <p><strong>Email:</strong> morsewc@auburn.edu</p>
+                <p><strong>Title/Organization:</strong> Outdoor Recreation Access and Equity</p>
+                <p><strong>Bio:</strong> ​The Morse CSS Lab researches topics of outdoor recreation and nature-based tourism, ecosystems services, and human dimensions of wildlife. Tools and theory from several conservation social sciences including psychology, sociology, economics, policy, and geography are applied. We use qualitative, quantitative, and spatial social science data collection and analysis methods to conduct research.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/388c-400o400o1-wN32k8aA3F2kkBQZEueoq7.jpg" alt="Wayde Morse's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:25am - 11:55am</div>
+            <div class="event-title"><a href="#">Management and Community Facilitators to Address Constraints to Participation in Outdoor Recreation</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb')">Randall Rosenberger</a>
+            </div>
+        </div>
+        
+        <div id="modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb')">&times;</span>
+                <h2>Randall Rosenberger</h2>
+                <p><strong>Email:</strong> rosenbra@oregonstate.edu</p>
+                <p><strong>Title/Organization:</strong> Professor, Oregon State University</p>
+                <p><strong>Bio:</strong> Randall S. Rosenberger is currently Professor and Interim Department Head for the Forest Ecosystems & Society Department in the College of Forestry at Oregon State University.  He spent the last 10-years serving the college as an Associate Dean.  He holds a doctorate in agricultural and resource economics and master’s degree in applied ethics from Colorado State University, and a bachelor’s degree in philosophy from Slippery Rock University of Pennsylvania.  He is a veteran of the U.S. Air Force.  
+
+His research expertise is in the areas of environmental valuation, and in particular meta-analysis and benefit transfer.  He maintains the Recreation Use Values Database—an open access collection of empirical economic measures of recreation activities in North America that have been widely used by researchers, planners, consultants, and others interested in the value of recreation.  Recently, he has been developing tools that estimate the health benefits associated with outdoor recreation.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/e421-400o400o1-htxoS3z1DhLgShLftopEZZ.jpg" alt="Randall Rosenberger's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:25am - 11:55am</div>
+            <div class="event-title"><a href="#">Management and Community Facilitators to Address Constraints to Participation in Outdoor Recreation</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb')">Lydia Gorrell</a>
+            </div>
+        </div>
+        
+        <div id="modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-374c3edf-262a-402f-9d64-6ce49f948c65, 80e7ad32-051a-491f-9e9b-4b56ded6f6d5, a9694202-5cd4-48b7-8854-850bacce4bbb')">&times;</span>
+                <h2>Lydia Gorrell</h2>
+                <p><strong>Email:</strong> lydia.gorrell@oregonstate.edu</p>
+                <p><strong>Title/Organization:</strong> Faculty Research Assistant, Oregon State University</p>
+                <p><strong>Bio:</strong> I am a faculty research assistant at Oregon State University with a MS in Forest Ecosystems and Society from the same institution. My interests include equitable access to recreation, relationships between recreation and emotional wellbeing and mental health, and children's outdoor recreation.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lydia-gorrell/" target="_blank">https://www.linkedin.com/in/lydia-gorrell/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/f2de-400o400o1-X1YHwe2jb1dAEPufAafDsi.jpg" alt="Lydia Gorrell's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 01:45pm</div>
+            <div class="event-title"><a href="#">A Case Study in Recreation Planning for an Emerging Gateway Towns</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-c35de47e-63b7-4138-ae08-e4992d7b47b6, 6d879d94-8c30-4655-8d73-6459e1f81933')">Kristina Kachur Webb</a>
+            </div>
+        </div>
+        
+        <div id="modal-c35de47e-63b7-4138-ae08-e4992d7b47b6, 6d879d94-8c30-4655-8d73-6459e1f81933" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-c35de47e-63b7-4138-ae08-e4992d7b47b6, 6d879d94-8c30-4655-8d73-6459e1f81933')">&times;</span>
+                <h2>Kristina Kachur Webb</h2>
+                <p><strong>Email:</strong> kkachurwebb@logansimpson.com</p>
+                <p><strong>Title/Organization:</strong> Senior Environmental Planner with Logan Simpson</p>
+                <p><strong>Bio:</strong> Kristina is an environmental planner specializing in outdoor recreation planning, public involvement, and sensitive lands management. She leads a variety of environmental, park and recreation, open space, natural resource, and comprehensive planning projects at various scales, working with local, county, and federal clients - focusing on gateway communities. She holds a master’s degree in urban and regional planning and is a certified planner.</p>
+                <p><strong>Website:</strong> <a href="https://logansimpson.com/" target="_blank">https://logansimpson.com/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/7cd4-400o400o1-GJ3QQp9g7tZabnoqBFqz28.jpg" alt="Kristina Kachur Webb's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 01:45pm</div>
+            <div class="event-title"><a href="#">A Case Study in Recreation Planning for an Emerging Gateway Towns</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-c35de47e-63b7-4138-ae08-e4992d7b47b6, 6d879d94-8c30-4655-8d73-6459e1f81933')">Sophie Frankenburg</a>
+            </div>
+        </div>
+        
+        <div id="modal-c35de47e-63b7-4138-ae08-e4992d7b47b6, 6d879d94-8c30-4655-8d73-6459e1f81933" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-c35de47e-63b7-4138-ae08-e4992d7b47b6, 6d879d94-8c30-4655-8d73-6459e1f81933')">&times;</span>
+                <h2>Sophie Frankenburg</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Planner</p>
+                <p><strong>Bio:</strong> Sophie Frankenburg is a planner with more than five years of experience in both municipal and private consulting planning roles. Sophie has worked on planning projects in urban and rural communities throughout Utah and the US. She has experience in community development, land use and zoning code authorship, active transportation, open space planning, and Gateway Natural Amenity Region (GNAR) Planning. Sophie has managed projects that have received recognition from the Utah Chapter of the American Planning Association as well as the University of Utah’s Department of City and Metropolitan Planning.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/2929-400o400o1-BDLKZepCviKUudddFUNtjh.png" alt="Sophie Frankenburg's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 01:45pm</div>
+            <div class="event-title"><a href="#">Successes of the Utah Trail Forum and Utah Trail Master Steward Program</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-cd4b814d-5d12-4b41-b83a-5e71e994038e')">Jake Powell</a>
+            </div>
+        </div>
+        
+        <div id="modal-cd4b814d-5d12-4b41-b83a-5e71e994038e" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-cd4b814d-5d12-4b41-b83a-5e71e994038e')">&times;</span>
+                <h2>Jake Powell</h2>
+                <p><strong>Email:</strong> jake.powell@usu.edu</p>
+                <p><strong>Title/Organization:</strong> Utah State University Extension - Landscape Architecture and Environmental Planning Specialist</p>
+                <p><strong>Bio:</strong> Jake graduated from Utah State University in 2008 with a Bachelor of Landscape Architecture and a minor in Watershed Sciences. After working professionally Jake returned to pursue a Master’s of Science in Landscape Architecture from Penn State University. Jake’s subsequent professional career has focused on uniting communities to their surrounding landscapes through collaborative planning and design efforts. He has worked throughout the Intermountain West to envision and implement projects that span the scales from watershed planning and restoration efforts, natural resource conservation plans, recreation infrastructure designs, and developing community economic growth opportunities.
+Jake’s research and extension efforts focus on analyzing how the design of communities, infrastructure, and sites affect water quality, quantity, and conservation at both the site and watershed scale, gateway community design and planning challenges, and recreation amenity development and stewardship.</p>
+                <p><strong>Website:</strong> <a href="https://caas.usu.edu/directory/powell-jake" target="_blank">https://caas.usu.edu/directory/powell-jake</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/6064-400o400o1-hc7eJn4YJXFQMAn38Kztg9.jpg" alt="Jake Powell's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:45pm - 02:30pm</div>
+            <div class="event-title"><a href="#">Gateway Community Visitor Mix</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-7b4d98ff-16c0-45a3-99c6-9abd4e5ead42')">Ashley Korenblat</a>
+            </div>
+        </div>
+        
+        <div id="modal-7b4d98ff-16c0-45a3-99c6-9abd4e5ead42" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-7b4d98ff-16c0-45a3-99c6-9abd4e5ead42')">&times;</span>
+                <h2>Ashley Korenblat</h2>
+                <p><strong>Email:</strong> ashley@publiclandsolutions.org</p>
+                <p><strong>Title/Organization:</strong> Recreation Economy Consultant, Managing Director Public Land Solutions</p>
+                <p><strong>Bio:</strong> Ashley Korenblat is a founding Managing Director at Public Land Solutions, a non-profit recreation economy consultant. PLS works directly with communities investing in outdoor recreation, and on federal and state legislation and policies that affect rural economies. 
+
+Ashley’s involvement with outdoor recreation began when she was President of Merlin Metalworks, a bicycle manufacturing company in Cambridge, MA. During that time served as Chair of the International Mountain Bicycling Association (IMBA). She is currently the CEO of Western Spirit Cycling an outfitter based in Moab, Utah who runs multi-day bicycle trips throughout the US. Western Spirit also produces Outerbike, a consumer bike demo event. Ashley was inducted into the Mountain Bike Hall of Fame in 2003. She has served on boards for a wide variety of organizations including the Western Governors Association, the State of Utah, the Moab Chamber of Commerce, and the Department of Interior. She is a graduate of Dartmouth College and has an MBA from the Tuck School at Dartmouth.</p>
+                <p><strong>Website:</strong> <a href="https://westernspirit.com/" target="_blank">https://westernspirit.com/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ashley-korenblat-9314aa9/" target="_blank">https://www.linkedin.com/in/ashley-korenblat-9314aa9/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/9444-400o400o1-3MXTNjsrbz35Kf9P4P2H63.jpg" alt="Ashley Korenblat's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:45pm - 02:30pm</div>
+            <div class="event-title"><a href="#">Navigating Partnerships and Innovating Approaches: University and Extension Support for Outdoor....</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">Aaron Wilcher</a>
+            </div>
+        </div>
+        
+        <div id="modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">&times;</span>
+                <h2>Aaron Wilcher</h2>
+                <p><strong>Email:</strong> awilcher@ucanr.edu</p>
+                <p><strong>Title/Organization:</strong> Community Economic Development Advisor</p>
+                <p><strong>Bio:</strong> Aaron Wilcher is a Community Economic Development Advisor with UC Agriculture and Natural Resources based in Bishop, California serving Inyo, Mono, and Eastern Kern counties. He manages an applied research and education program that promotes small business, economic diversification, and workforce development. He works with regional planning organizations, agencies, and business associations to build partnerships, collaborate on technical issues, and identify new opportunities.
+ 
+Before joining UCCE, Wilcher directed an applied economics research program for Sacramento regional community colleges and workforce stakeholders, advising on talent development strategy. In that role, he worked with numerous partners on regional initiatives for a range of topics including early childhood education, public sector workforce pathways, economic impact analysis for industry segments, industry market studies, regional workforce and economic development plans, and fact sheets and marketing materials. He led research teams for dozens of community-scale initiatives, industry and market studies, environmental scans, and focused planning sessions. 
+
+Prior to working in the Sacramento region, Wilcher was a faculty program manager for clean energy workforce development programs in the San Francisco Bay Area community college system, where he led federal, state, and private grant programs. He worked with public-private partnerships and faculty teams to create new courses that trained hundreds of students. 
+ 
+He recently produced an assessment of the North San Joaquin Valley’s industry clusters and labor market for the California Jobs First Initiative. He also contributed a chapter on community culture to the Economic Development Recovery and Resiliency Playbook under a grant from the U.S. Economic Development Administration to the California Association for Local Economic Development (CALED). 
+ 
+The San José native earned a bachelor’s degree in Spanish from UCLA and a master’s degree in city planning, community and economic development from UC Berkeley along with a master’s degree in American Studies from Saint Louis University in Missouri. He is certified as an economic research professional by the Council for Community and Economic Research. He has been a lifelong outdoor recreation enthusiast and rides mountain bikes and skis in the backcountry.</p>
+                <p><strong>Website:</strong> <a href="https://ucanr.edu/sites/CED/" target="_blank">https://ucanr.edu/sites/CED/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aaronwilcher/" target="_blank">https://www.linkedin.com/in/aaronwilcher/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/ed9e-400o400o1-hz6jo4vaxfpWkFD4jCpTrN.jpg" alt="Aaron Wilcher's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:45pm - 02:30pm</div>
+            <div class="event-title"><a href="#">Navigating Partnerships and Innovating Approaches: University and Extension Support for Outdoor....</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">Hailey  Sorg</a>
+            </div>
+        </div>
+        
+        <div id="modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">&times;</span>
+                <h2>Hailey  Sorg</h2>
+                <p><strong>Email:</strong> hsorg@uwyo.edu</p>
+                <p><strong>Title/Organization:</strong> Wyoming Outdoor Recreation, Tourism, and Hospitality (WORTH) Initiative Extension Educator- University of Wyoming</p>
+                <p><strong>Bio:</strong> Hailey Sorg is Wyoming's first Outdoor Recreation, Tourism, and Hospitality (WORTH) Initiative Extension Educator for the University of Wyoming. Originally from Douglas, Wyoming, Hailey is passionate about sharing her state's unique stories and experiences. She recognizes the WORTH Initiative’s unique ability to connect industry, experience, and most importantly the people within the state of Wyoming. Her role as the WORTH Extension Educator is to provide support to Wyoming communities and businesses to maximize natural resource-based tourism opportunities in a responsible way. As many say, Wyoming is a small town with long streets, and Hailey has enjoyed being part of the WORTH Initiative as it continues to make these connections and provide support throughout the state.</p>
+                <p><strong>Website:</strong> <a href="https://www.uwyo.edu/worth/" target="_blank">https://www.uwyo.edu/worth/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/f98f-400o400o1-33Akvb7tScXjSHwaa9C3FF.jpg" alt="Hailey  Sorg's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:45pm - 02:30pm</div>
+            <div class="event-title"><a href="#">Navigating Partnerships and Innovating Approaches: University and Extension Support for Outdoor....</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">Alec Dompka</a>
+            </div>
+        </div>
+        
+        <div id="modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">&times;</span>
+                <h2>Alec Dompka</h2>
+                <p><strong>Email:</strong> dompka@gmail.com</p>
+                <p><strong>Title/Organization:</strong> UC ANR</p>
+                <p><strong>Bio:</strong> UCCE CED advisor in Northern California</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/ce07-400o400o1-TxW7nJYLUbMPXdLgise4hJ.jpg" alt="Alec Dompka's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:45pm - 02:30pm</div>
+            <div class="event-title"><a href="#">Navigating Partnerships and Innovating Approaches: University and Extension Support for Outdoor....</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">Carter Bermingham</a>
+            </div>
+        </div>
+        
+        <div id="modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-97c329f3-3f10-49ca-b5d7-2d097c1b9f3f, a6a1e335-ee90-4908-89bb-293c8e0bc2d2, b0248d5c-5809-42ca-a975-5e3f3fe25c80, 36321c2c-413b-4e9d-8314-d7bb6944da5e')">&times;</span>
+                <h2>Carter Bermingham</h2>
+                <p><strong>Email:</strong> carter.bermingham@mso.umt.edu</p>
+                <p><strong>Title/Organization:</strong> Institute for Tourism & Recreation Research (ITRR) - University of Montana, Social Scientist and Research Associate</p>
+                <p><strong>Bio:</strong> I assist in ITRR's research efforts, both nationally and locally, covering subjects like resident attitudes towards tourism, the outfitting and guiding industry, and gateway communities to national parks. Some of my other work at ITRR focuses on visitor use management and socioeconomic monitoring research for the National Park Service, including work in Yellowstone, Zion, Grand Teton, Isle Royale, Canyon de Chelly, Casa Grande Ruins, John Day Fossil Beds, and Indiana Dunes. When I'm not working, I enjoy spending time outdoors and being on the water with my wife and son.</p>
+                <p><strong>Website:</strong> <a href="https://www.umt.edu/tourism-recreation-research/default.php" target="_blank">https://www.umt.edu/tourism-recreation-research/default.php</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="https://x.com/itrrumt" target="_blank">https://x.com/itrrumt</a></p>
+                <img src="https://sessionize.com/image/5f74-400o400o1-HDbHyi3MBRxwa3yEtso5Av.jpg" alt="Carter Bermingham's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">02:45pm - 03:30pm</div>
+            <div class="event-title"><a href="#">Laying the Groundwork for a Successful Trail Project</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-d07db264-c5de-40e3-8cb8-8fed4e4ea8c8')">Sarah Bennett</a>
+            </div>
+        </div>
+        
+        <div id="modal-d07db264-c5de-40e3-8cb8-8fed4e4ea8c8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-d07db264-c5de-40e3-8cb8-8fed4e4ea8c8')">&times;</span>
+                <h2>Sarah Bennett</h2>
+                <p><strong>Email:</strong> sarah@trailsutah.org</p>
+                <p><strong>Title/Organization:</strong> Founder and Executive Director of Trails Utah</p>
+                <p><strong>Bio:</strong> A life-long resident of Utah, Sarah grew up exploring trails in the Wasatch, right outside her back door. She began riding, hiking, and researching trails for a series of biking guide books in the early 90s. What she learned from trail enthusiasts and land managers in four different states during researching and writing four books in total over 10 years, inspired her to become a committed trail advocate and eventually establish Trails Utah.</p>
+                <p><strong>Website:</strong> <a href="https://trailsutah.org" target="_blank">https://trailsutah.org</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sarah-bennett-53b9475/" target="_blank">https://www.linkedin.com/in/sarah-bennett-53b9475/</a></p>
+                <p><strong>Twitter:</strong> <a href="https://x.com/TrailsUtah" target="_blank">https://x.com/TrailsUtah</a></p>
+                <img src="https://sessionize.com/image/3aee-400o400o1-33qoRCjyEvTezbR1q9gtYz.jpg" alt="Sarah Bennett's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">02:45pm - 03:30pm</div>
+            <div class="event-title"><a href="#">The Rivers, Trails and Conservation Assistance Program and its Resources </a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-b584f6cd-bfed-4bb0-9c7f-985da05602a8')">Brandon Stocksdale</a>
+            </div>
+        </div>
+        
+        <div id="modal-b584f6cd-bfed-4bb0-9c7f-985da05602a8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-b584f6cd-bfed-4bb0-9c7f-985da05602a8')">&times;</span>
+                <h2>Brandon Stocksdale</h2>
+                <p><strong>Email:</strong> brandon_stocksdale@nps.gov</p>
+                <p><strong>Title/Organization:</strong> National Park Service, Rivers, Trails & Conservation Assistance Program</p>
+                <p><strong>Bio:</strong> Brandon Stocksdale joined the National Park Service as a Community Planner in the Rivers, Trails and Conservation Assistance Program in October 2016. Brandon’s RTCA work has focused on developing multi-agency conservation and recreation area management plans; local and regional trail plans; and local outdoor education and community stewardship programming development.
+
+Before working for the National Park Service, Brandon was the Long Ranger Planner for the City of Orem, Utah. He also worked for Matrix Design Group doing Joint Land Use Studies and compatibility planning for the Department of Defense on military installations around the world. Brandon has a strong background in economic development, land use policy, and local government planning processes. He has always had a strong interest in the urban-wild interface and enjoys the opportunities RTCA provides to help communities preserve open space and help people access the outdoors.</p>
+                <p><strong>Website:</strong> <a href="https://www.nps.gov/orgs/rtca/index.htm" target="_blank">https://www.nps.gov/orgs/rtca/index.htm</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/bdd1-400o400o1-LZAtEardCNGc76yfSyKhGY.jpg" alt="Brandon Stocksdale's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        </div><div class="day-section"><div class="day-title">Wed</div>
+        <div class="event">
+            <div class="event-time">09:00am - 11:55am</div>
+            <div class="event-title"><a href="#">WORKSHOP: Conflict Competency Training</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-91fc05ed-ece9-41ea-a7b0-53e418fe3744')">Danya Rumore</a>
+            </div>
+        </div>
+        
+        <div id="modal-91fc05ed-ece9-41ea-a7b0-53e418fe3744" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-91fc05ed-ece9-41ea-a7b0-53e418fe3744')">&times;</span>
+                <h2>Danya Rumore</h2>
+                <p><strong>Email:</strong> danya.rumore@law.utah.edu</p>
+                <p><strong>Title/Organization:</strong> Wallace Stegner Center for Environmental Dispute Resolution</p>
+                <p><strong>Bio:</strong> Danya Rumore, Ph.D., is the Director of the Wallace Stegner Center’s Environmental Dispute Resolution Program, a Research Professor of Law, and a Clinical Associate Professor of Planning at the University of Utah. She is a facilitator, collaborative process designer, and conflict resolution professional with a particular passion for understanding and addressing the unique challenges and opportunities facing rural regions in the American West. Danya founded and now co-directs the Gateway and Natural Amenity Region (GNAR) Initiative. She holds a Ph.D. in Environmental Policy and Planning from the Massachusetts Institute of Technology, and she was the 2018 recipient of the Rob Williams Award for Emerging Environment and Public Policy Leaders.</p>
+                <p><strong>Website:</strong> <a href="https://www.law.utah.edu/stegner-center/edr/" target="_blank">https://www.law.utah.edu/stegner-center/edr/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/danya-rumore-98441118/" target="_blank">https://www.linkedin.com/in/danya-rumore-98441118/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/b049-400o400o1-rn1LoS8caERcs9szCibgmu.jpg" alt="Danya Rumore's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 05:00pm</div>
+            <div class="event-title"><a href="#">WORKSHOP: Visitor Use Management</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee')">Rachel Franchina</a>
+            </div>
+        </div>
+        
+        <div id="modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee')">&times;</span>
+                <h2>Rachel Franchina</h2>
+                <p><strong>Email:</strong> rachel.franchina@recpro.org</p>
+                <p><strong>Title/Organization:</strong> Society for Outdoor Recreation Professionals </p>
+                <p><strong>Bio:</strong> Rachel Franchina spent 20 years working for the U.S. Forest Service as an outdoor recreation planner and program manager. She also served on the board of the Society of Outdoor Recreation Professionals (SORP) for nine years and now serves as SORP’s Executive Director. Rachel is also the owner of Ruby Mountain Consulting where she works with agencies, non-profits, and collaborative groups to find common ground for enjoying the outdoors. Rachel uses her knowledge of land management, recreation planning and visitor use management, and collaboration and facilitation to support the outdoor recreation professionals develop that connect people to the outdoors and protect natural and cultural resources. Rachel has a B.S. in Recreation Resource Management from the University of Montana and a M.S. in Natural Resource Recreation from Virginia Tech.</p>
+                <p><strong>Website:</strong> <a href="http://www.recpro.org" target="_blank">http://www.recpro.org</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rachel-franchina/" target="_blank">https://www.linkedin.com/in/rachel-franchina/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/3dc8-400o400o1-4cTu96WdVSnEYLeq6NiPX5.png" alt="Rachel Franchina's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 05:00pm</div>
+            <div class="event-title"><a href="#">WORKSHOP: Visitor Use Management</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee')">Lee Cerveny</a>
+            </div>
+        </div>
+        
+        <div id="modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee')">&times;</span>
+                <h2>Lee Cerveny</h2>
+                <p><strong>Email:</strong> lee.cerveny@usda.gov</p>
+                <p><strong>Title/Organization:</strong> USDA Forest Service, Pacific Northwest Research Station</p>
+                <p><strong>Bio:</strong> Lee Cerveny is a Research Social Scientist with the USFS Pacific Northwest Research Station based in Seattle, WA.   Her work focuses on sustainable recreation, equitable access to public lands, nonrecreational camping, and post-fire recreation.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/f68c-400o400o1-J5LVdkdft7GLR4atbSLD5s.jpg" alt="Lee Cerveny's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 05:00pm</div>
+            <div class="event-title"><a href="#">WORKSHOP: Visitor Use Management</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee')">Amy  Tendick</a>
+            </div>
+        </div>
+        
+        <div id="modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364, 6c840310-5a9e-4e97-a7c6-c60b3f5f9afa, 1b492ec6-8a31-480a-81e0-bc1c0ddf6aee')">&times;</span>
+                <h2>Amy  Tendick</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> National Park Service, Southeast Utah Group, Visitor Use Planner</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Amy  Tendick's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:00pm - 05:00pm</div>
+            <div class="event-title"><a href="#">WORKSHOP: Affordable & Workforce Housing Solutions in Gateway Communities</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-91fc05ed-ece9-41ea-a7b0-53e418fe3744')">Danya Rumore</a>
+            </div>
+        </div>
+        
+        <div id="modal-91fc05ed-ece9-41ea-a7b0-53e418fe3744" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-91fc05ed-ece9-41ea-a7b0-53e418fe3744')">&times;</span>
+                <h2>Danya Rumore</h2>
+                <p><strong>Email:</strong> danya.rumore@law.utah.edu</p>
+                <p><strong>Title/Organization:</strong> Wallace Stegner Center for Environmental Dispute Resolution</p>
+                <p><strong>Bio:</strong> Danya Rumore, Ph.D., is the Director of the Wallace Stegner Center’s Environmental Dispute Resolution Program, a Research Professor of Law, and a Clinical Associate Professor of Planning at the University of Utah. She is a facilitator, collaborative process designer, and conflict resolution professional with a particular passion for understanding and addressing the unique challenges and opportunities facing rural regions in the American West. Danya founded and now co-directs the Gateway and Natural Amenity Region (GNAR) Initiative. She holds a Ph.D. in Environmental Policy and Planning from the Massachusetts Institute of Technology, and she was the 2018 recipient of the Rob Williams Award for Emerging Environment and Public Policy Leaders.</p>
+                <p><strong>Website:</strong> <a href="https://www.law.utah.edu/stegner-center/edr/" target="_blank">https://www.law.utah.edu/stegner-center/edr/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/danya-rumore-98441118/" target="_blank">https://www.linkedin.com/in/danya-rumore-98441118/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/b049-400o400o1-rn1LoS8caERcs9szCibgmu.jpg" alt="Danya Rumore's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">05:30pm - 07:30pm</div>
+            <div class="event-title"><a href="#">SORP Meetup </a></div>
+            <div class="event-room">Room: Off-site</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364')">Rachel Franchina</a>
+            </div>
+        </div>
+        
+        <div id="modal-cb06d746-e9a9-4551-a94a-0eddbc989364" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-cb06d746-e9a9-4551-a94a-0eddbc989364')">&times;</span>
+                <h2>Rachel Franchina</h2>
+                <p><strong>Email:</strong> rachel.franchina@recpro.org</p>
+                <p><strong>Title/Organization:</strong> Society for Outdoor Recreation Professionals </p>
+                <p><strong>Bio:</strong> Rachel Franchina spent 20 years working for the U.S. Forest Service as an outdoor recreation planner and program manager. She also served on the board of the Society of Outdoor Recreation Professionals (SORP) for nine years and now serves as SORP’s Executive Director. Rachel is also the owner of Ruby Mountain Consulting where she works with agencies, non-profits, and collaborative groups to find common ground for enjoying the outdoors. Rachel uses her knowledge of land management, recreation planning and visitor use management, and collaboration and facilitation to support the outdoor recreation professionals develop that connect people to the outdoors and protect natural and cultural resources. Rachel has a B.S. in Recreation Resource Management from the University of Montana and a M.S. in Natural Resource Recreation from Virginia Tech.</p>
+                <p><strong>Website:</strong> <a href="http://www.recpro.org" target="_blank">http://www.recpro.org</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rachel-franchina/" target="_blank">https://www.linkedin.com/in/rachel-franchina/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/3dc8-400o400o1-4cTu96WdVSnEYLeq6NiPX5.png" alt="Rachel Franchina's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        </div><div class="day-section"><div class="day-title">Thu</div>
+        <div class="event">
+            <div class="event-time">09:00am - 10:00am</div>
+            <div class="event-title"><a href="#">PLENARY: Natalie Randall, Thomas Dansie - The Future of Tourism & Destination Stewardship in Utah </a></div>
+            <div class="event-room">Room: Star Hall</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-0fcb9e32-e11a-43e1-8d2c-a8474e4bfdc1, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">Natalie  Randall </a>
+            </div>
+        </div>
+        
+        <div id="modal-0fcb9e32-e11a-43e1-8d2c-a8474e4bfdc1, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-0fcb9e32-e11a-43e1-8d2c-a8474e4bfdc1, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">&times;</span>
+                <h2>Natalie  Randall </h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Utah Office of Tourism</p>
+                <p><strong>Bio:</strong> Natalie Randall is the managing director of the Utah Office of Tourism and Film in the Governor’s Office of Economic Opportunity. She leads Utah’s international and domestic strategy in building a perpetual visitor economy. She has built a career anchored at the crossroads of policy and business, finding a passion in elevating community driven initiatives. Randall’s professional experience included executive director of the Utah Tourism Industry Association (UTIA), executive director of San Juan County's Economic Development and Tourism, director of Monticello City Parks, Recreation, Trails, and Community and Economic Development, and co-owner of Roam Industry, a guide and outfitter. Randall enjoys exploring Utah’s wild places by bike, ski, and rope with her family</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/e6ef-400o400o1-JMHqJQFC7QdA9FsaTXmBx1.jpg" alt="Natalie  Randall 's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">09:00am - 10:00am</div>
+            <div class="event-title"><a href="#">PLENARY: Natalie Randall, Thomas Dansie - The Future of Tourism & Destination Stewardship in Utah </a></div>
+            <div class="event-room">Room: Star Hall</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-0fcb9e32-e11a-43e1-8d2c-a8474e4bfdc1, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">Thomas Dansie</a>
+            </div>
+        </div>
+        
+        <div id="modal-0fcb9e32-e11a-43e1-8d2c-a8474e4bfdc1, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-0fcb9e32-e11a-43e1-8d2c-a8474e4bfdc1, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">&times;</span>
+                <h2>Thomas Dansie</h2>
+                <p><strong>Email:</strong> tdansie@springdale.utah.gov</p>
+                <p><strong>Title/Organization:</strong> Director of Community Development, Town of Springdale, Utah</p>
+                <p><strong>Bio:</strong> Thomas Dansie is the Director of Community Development in the Town of Springdale, Utah--the gateway to Zion National Park. Tom's work includes addressing detailed and specific gateway community issues in Springdale, as well as collaborating with regional partners on general gateway issues in the greater Zion area. Tom has been an active organizer and participant in collaborative community planning efforts in the Zion area for the past 20 years.</p>
+                <p><strong>Website:</strong> <a href="https://www.springdaletown.com" target="_blank">https://www.springdaletown.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/3081-400o400o1-MCmvVdMUMNz8d2Sy1yxCZ7.jpg" alt="Thomas Dansie's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 10:50am</div>
+            <div class="event-title"><a href="#">“I Feel Like I’m Being Pushed Out”: Community Change, Amenity Migration, and Tourism at Bear Lake</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-9862c65a-0a7f-45cc-9bf9-ef2b8e5e2a9c')">Alex Theophilus</a>
+            </div>
+        </div>
+        
+        <div id="modal-9862c65a-0a7f-45cc-9bf9-ef2b8e5e2a9c" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-9862c65a-0a7f-45cc-9bf9-ef2b8e5e2a9c')">&times;</span>
+                <h2>Alex Theophilus</h2>
+                <p><strong>Email:</strong> a.theophilus@usu.edu</p>
+                <p><strong>Title/Organization:</strong> Utah State University, Ph.D Student.</p>
+                <p><strong>Bio:</strong> Alex is a Ph.D. student in the Department of Sociology & Anthropology at Utah State University. He studies community wellbeing in rural places, with a focus on communities experiencing amenity migration.</p>
+                <p><strong>Website:</strong> <a href="https://chass.usu.edu/sociology/directory/graduate-students/alex-theophilus" target="_blank">https://chass.usu.edu/sociology/directory/graduate-students/alex-theophilus</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/64fc-400o400o1-YprFM4tgRngCfADCZBCuqU.jpg" alt="Alex Theophilus's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 10:50am</div>
+            <div class="event-title"><a href="#">Addressing Wellbeing in Utah's Amenity Communities</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-263d734b-74b3-4470-b227-35c12f882638, d8a1de00-e89a-4b2a-9c36-5abb9d4b55dd')">Emma Epperson</a>
+            </div>
+        </div>
+        
+        <div id="modal-263d734b-74b3-4470-b227-35c12f882638, d8a1de00-e89a-4b2a-9c36-5abb9d4b55dd" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-263d734b-74b3-4470-b227-35c12f882638, d8a1de00-e89a-4b2a-9c36-5abb9d4b55dd')">&times;</span>
+                <h2>Emma Epperson</h2>
+                <p><strong>Email:</strong> emma.epperson@usu.edu</p>
+                <p><strong>Title/Organization:</strong> Graduate Student in Environment and Society at Utah State University</p>
+                <p><strong>Bio:</strong> Emma Epperson is a master's student studying Environment and Society at Utah State University under the advisement of Dr. Courtney Flint, working on the Transformation Network and Utah Wellbeing project. These projects study community wellbeing and gain local perspectives on environmental concerns. Emma is from Salt Lake City, Utah and completed her undergraduate degree at Utah State University in Environmental Studies. In Emma's time away from work and school, she loves to camp, snowboard, and hike.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/92a8-400o400o1-yTs7SHJrN8Vbv7vWnHY6p.jpg" alt="Emma Epperson's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 10:50am</div>
+            <div class="event-title"><a href="#">Addressing Wellbeing in Utah's Amenity Communities</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-263d734b-74b3-4470-b227-35c12f882638, d8a1de00-e89a-4b2a-9c36-5abb9d4b55dd')">Courtney Flint</a>
+            </div>
+        </div>
+        
+        <div id="modal-263d734b-74b3-4470-b227-35c12f882638, d8a1de00-e89a-4b2a-9c36-5abb9d4b55dd" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-263d734b-74b3-4470-b227-35c12f882638, d8a1de00-e89a-4b2a-9c36-5abb9d4b55dd')">&times;</span>
+                <h2>Courtney Flint</h2>
+                <p><strong>Email:</strong> courtney.flint@usu.edu</p>
+                <p><strong>Title/Organization:</strong> Professor of Environment & Society at Utah State University</p>
+                <p><strong>Bio:</strong> Courtney Flint is a Professor of Environment & Society at Utah State University in Logan, Utah. She directs the Utah Wellbeing Project and Survey, working with cities around the state to assess local perspectives to support community planning efforts. More broadly she and her students study changing landscapes, water systems, and community conditions and work to support local and regional decisions on land and water use and local and regional wellbeing.</p>
+                <p><strong>Website:</strong> <a href="https://www.usu.edu/utah-wellbeing-project/" target="_blank">https://www.usu.edu/utah-wellbeing-project/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/3575-400o400o1-7N9J6omvXF8NgSNi7Tyuf.jpg" alt="Courtney Flint's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:50am - 11:15am</div>
+            <div class="event-title"><a href="#">Resident-centered Methods of Understanding Change in a Western Mountain Gateway Community</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-bc791149-4db7-44f5-b623-42c33ffe960d')">Julia Branstrator</a>
+            </div>
+        </div>
+        
+        <div id="modal-bc791149-4db7-44f5-b623-42c33ffe960d" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-bc791149-4db7-44f5-b623-42c33ffe960d')">&times;</span>
+                <h2>Julia Branstrator</h2>
+                <p><strong>Email:</strong> julia.branstrator@colostate.edu</p>
+                <p><strong>Title/Organization:</strong> Adjunct Instructor for the Human Dimensions of Natural Resources Department at Colorado State University; Research Affiliate in Dr. Christina Cavaliere's Tourism and Conservation Lab</p>
+                <p><strong>Bio:</strong> Julia Branstrator, PhD, recently completed her PhD in the Human Dimensions of Natural Resources at Colorado State University. Her dissertation explored complex changes experienced by western gateway community residents within a tourism economy during COVID-19. Her research crosses broad themes such as sustainable technology adoption, cultural heritage tourism, resident well-being within tourism crisis and disaster management, and facilitating sustainable operations within the human dimensions of tourism. Her latest research centers in-depth, resident-centered approaches informed by the experiences and adaptations of protected area and gateway community residents to explore resident quality of life within tourism planning through technology use, identities, and affect. Her aim in research is to support multilateral, grassroots organizations in gateway communities to support equitable, resilient, and adaptive futures.</p>
+                <p><strong>Website:</strong> <a href="https://sites.warnercnr.colostate.edu/christinacavaliere/tourism-conservation-lab/tourism-and-conservation-lab-in-the-news/" target="_blank">https://sites.warnercnr.colostate.edu/christinacavaliere/tourism-conservation-lab/tourism-and-conservation-lab-in-the-news/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/juliabranstrator" target="_blank">https://www.linkedin.com/in/juliabranstrator</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/a433-400o400o1-3g1Ywfwx8yTMVRXEv4y3Z3.png" alt="Julia Branstrator's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:50am - 11:15am</div>
+            <div class="event-title"><a href="#">Assessing the Economic Impact of Managed Access on Gateway Community Economies</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-d47468a0-ba31-445f-9ef2-85620f012352')">Emma Hoskins</a>
+            </div>
+        </div>
+        
+        <div id="modal-d47468a0-ba31-445f-9ef2-85620f012352" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-d47468a0-ba31-445f-9ef2-85620f012352')">&times;</span>
+                <h2>Emma Hoskins</h2>
+                <p><strong>Email:</strong> emmarhoskins@gmail.com</p>
+                <p><strong>Title/Organization:</strong> Climate and Resilience Fellow at National Parks Conservation Association, MS in Outdoor Recreation Economy</p>
+                <p><strong>Bio:</strong> Emma is passionate about exploring the intersection of environmental, social, and economic issues related to outdoor recreation. She is currently pursuing her MS in Outdoor Recreation Economy at the University of Colorado Boulder, where she examines how outdoor recreation contributes to community well-being, conservation, and development. She is also a Climate and Resilience Fellow at the National Parks Conservation Association (NPCA), where she conducts comprehensive research on climate change impacts within national parks and supports NPCA's legislative and policy initiatives.
+
+Emma is an avid outdoors enthusiast who enjoys exploring national parks and understanding the intricate dynamics between human activity and natural environments across the globe. She has written for Trails Magazine focusing on co-management between First Nations and Parks Canada in the Arctic Circle of Canada and has additionally spent time exploring and living in New Zealand.</p>
+                <p><strong>Website:</strong> <a href="https://emmarhoskins.com" target="_blank">https://emmarhoskins.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/emmarhoskins/" target="_blank">https://www.linkedin.com/in/emmarhoskins/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/bd2b-400o400o1-Ts1XnyZJ4i6Jaqz7quidyQ.jpg" alt="Emma Hoskins's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:30am - 11:55am</div>
+            <div class="event-title"><a href="#">Let’s Be Friends: Formalizing Collaboration between Grand Staircase Escalante Partners and the BLM</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-d32eb56c-ee86-4a7e-b068-76cc321b0b1b, c8914771-9fe9-4bb5-9fe4-f277253cff1a')">Jackie Grant</a>
+            </div>
+        </div>
+        
+        <div id="modal-d32eb56c-ee86-4a7e-b068-76cc321b0b1b, c8914771-9fe9-4bb5-9fe4-f277253cff1a" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-d32eb56c-ee86-4a7e-b068-76cc321b0b1b, c8914771-9fe9-4bb5-9fe4-f277253cff1a')">&times;</span>
+                <h2>Jackie Grant</h2>
+                <p><strong>Email:</strong> jackie@gsenm.org</p>
+                <p><strong>Title/Organization:</strong> Executive Director, Grand Staircase Escalante Partners</p>
+                <p><strong>Bio:</strong> Dr. Jackie Grant taught biology and environmental science at Southern Utah University for 12 years before joining Grand Staircase Escalante Partners in 2024. During that time she established science-based partnerships with Federal land management agencies such as the Bureau of Land Management, National Park Service, Fish and Wildlife Service, and National Forest Service. She is the Vice President of the Utah Native Plant Society and served as the Vice President for Education and Outreach for the Society for Conservation Biology. Her broad expertise covers environmental genetics, native plants, pollinators, and active transportation. Dr. Grant was a Fulbright Scholar to New Zealand in 2023, where she learned about seed preservation from an Indigenous (Māori) perspective. She now directs Grand Staircase Escalante Partners, which is the official Friends Group of the Grand Staircase-Escalante National Monument.</p>
+                <p><strong>Website:</strong> <a href="https://gsenm.org/" target="_blank">https://gsenm.org/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jacqualine-grant-811b2073/" target="_blank">https://www.linkedin.com/in/jacqualine-grant-811b2073/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/68b4-400o400o1-B6xFvbuWrASQS1dia1zjBp.jpg" alt="Jackie Grant's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:30am - 11:55am</div>
+            <div class="event-title"><a href="#">Let’s Be Friends: Formalizing Collaboration between Grand Staircase Escalante Partners and the BLM</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-d32eb56c-ee86-4a7e-b068-76cc321b0b1b, c8914771-9fe9-4bb5-9fe4-f277253cff1a')">Jabe Beal</a>
+            </div>
+        </div>
+        
+        <div id="modal-d32eb56c-ee86-4a7e-b068-76cc321b0b1b, c8914771-9fe9-4bb5-9fe4-f277253cff1a" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-d32eb56c-ee86-4a7e-b068-76cc321b0b1b, c8914771-9fe9-4bb5-9fe4-f277253cff1a')">&times;</span>
+                <h2>Jabe Beal</h2>
+                <p><strong>Email:</strong> jbeal@blm.gov</p>
+                <p><strong>Title/Organization:</strong> Getting good work done!</p>
+                <p><strong>Bio:</strong> With 14 years on Grand Staircase - Escalante National Monument (GSENM), 20 years with BLM, and working on on four National Lands Conservations System units, Jabe brings a broad understanding to working with and developing partnerships. Since 2017, GSEP and GSENM have developed the partnership beyond the invasive species removal project to include a new stewardship program focused on the rehabilitation and remediation of recreation impacts on public lands. In addition, GSEP is developing  a new program to monitor wilderness characteristics in Wilderness Study Areas. Come join this session to learn how this partnerships supports GSENM a and the public lands mission.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/f4ba-400o400o1-GAFwjXg8hXv9qRsVbHW7Lf.jpg" alt="Jabe Beal's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:30am - 11:55am</div>
+            <div class="event-title"><a href="#">Collaborative Recreation Planning in Rural Nevada</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-b584f6cd-bfed-4bb0-9c7f-985da05602a8')">Brandon Stocksdale</a>
+            </div>
+        </div>
+        
+        <div id="modal-b584f6cd-bfed-4bb0-9c7f-985da05602a8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-b584f6cd-bfed-4bb0-9c7f-985da05602a8')">&times;</span>
+                <h2>Brandon Stocksdale</h2>
+                <p><strong>Email:</strong> brandon_stocksdale@nps.gov</p>
+                <p><strong>Title/Organization:</strong> National Park Service, Rivers, Trails & Conservation Assistance Program</p>
+                <p><strong>Bio:</strong> Brandon Stocksdale joined the National Park Service as a Community Planner in the Rivers, Trails and Conservation Assistance Program in October 2016. Brandon’s RTCA work has focused on developing multi-agency conservation and recreation area management plans; local and regional trail plans; and local outdoor education and community stewardship programming development.
+
+Before working for the National Park Service, Brandon was the Long Ranger Planner for the City of Orem, Utah. He also worked for Matrix Design Group doing Joint Land Use Studies and compatibility planning for the Department of Defense on military installations around the world. Brandon has a strong background in economic development, land use policy, and local government planning processes. He has always had a strong interest in the urban-wild interface and enjoys the opportunities RTCA provides to help communities preserve open space and help people access the outdoors.</p>
+                <p><strong>Website:</strong> <a href="https://www.nps.gov/orgs/rtca/index.htm" target="_blank">https://www.nps.gov/orgs/rtca/index.htm</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/bdd1-400o400o1-LZAtEardCNGc76yfSyKhGY.jpg" alt="Brandon Stocksdale's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:55am - 12:20pm</div>
+            <div class="event-title"><a href="#">The Success of Collaborative Management of the Sand Flats Recreation Area</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-9ce76a75-a9e6-45ed-bce1-fea94dd30c39')">Andrea Brand</a>
+            </div>
+        </div>
+        
+        <div id="modal-9ce76a75-a9e6-45ed-bce1-fea94dd30c39" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-9ce76a75-a9e6-45ed-bce1-fea94dd30c39')">&times;</span>
+                <h2>Andrea Brand</h2>
+                <p><strong>Email:</strong> abrand@grandcountyutah.net</p>
+                <p><strong>Title/Organization:</strong> Grand County Sand Flats Director</p>
+                <p><strong>Bio:</strong> Andrea Brand has been the Director of the Sand Flats Recreation Area for over 20 years. Prior to this she worked as a seasonal Interpretive park ranger, field archeologist, field biologist, and a GPS field technician in seven western National Parks. She was also a River Ranger for the Bureau of Land Management on the San Juan and Salmon rivers.</p>
+                <p><strong>Website:</strong> <a href="https://www.grandcountyutah.net/287/Sand-Flats-Recreation-Area" target="_blank">https://www.grandcountyutah.net/287/Sand-Flats-Recreation-Area</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/15de-400o400o1-bV8yr7ayYhhtzVyAh8bLX.png" alt="Andrea Brand's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:55am - 12:20pm</div>
+            <div class="event-title"><a href="#">The Unsustainability of Tourism Promotion</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-ce6641ae-7b8f-4ac8-81ad-05d6b7357889')">Eric Ewert</a>
+            </div>
+        </div>
+        
+        <div id="modal-ce6641ae-7b8f-4ac8-81ad-05d6b7357889" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-ce6641ae-7b8f-4ac8-81ad-05d6b7357889')">&times;</span>
+                <h2>Eric Ewert</h2>
+                <p><strong>Email:</strong> eewert@weber.edu</p>
+                <p><strong>Title/Organization:</strong> Professor and Chair, Department of Geography, Environment & Sustainability at Weber State University</p>
+                <p><strong>Bio:</strong> https://www.weber.edu/geography/EricEwert.html</p>
+                <p><strong>Website:</strong> <a href="https://www.weber.edu/geography" target="_blank">https://www.weber.edu/geography</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/8e64-400o400o1-DFRhnsHJq4Z5VpX6aRp8VD.jpg" alt="Eric Ewert's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:30pm - 02:15pm</div>
+            <div class="event-title"><a href="#">Mariposa / Yosemite Mobility & Housing Strategy</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-a00bbc31-13ab-49f9-9225-f7bb2a237c5c, 35fe1e86-09e5-415b-997d-fb5b3f726161')">Andrew Dawson</a>
+            </div>
+        </div>
+        
+        <div id="modal-a00bbc31-13ab-49f9-9225-f7bb2a237c5c, 35fe1e86-09e5-415b-997d-fb5b3f726161" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-a00bbc31-13ab-49f9-9225-f7bb2a237c5c, 35fe1e86-09e5-415b-997d-fb5b3f726161')">&times;</span>
+                <h2>Andrew Dawson</h2>
+                <p><strong>Email:</strong> adawson@wrtdesign.com</p>
+                <p><strong>Title/Organization:</strong> WRT Senior Associate & Landscape Architect</p>
+                <p><strong>Bio:</strong> With a background in physical geography, Andy has an MCP and MLA from the University of Pennsylvania, and his work revolves around navigating the scale shifts between these complementary disciplines. From a field office in Denver, he works between both of WRT’s offices, guiding strategic approaches to projects and teams across the country. Andy’s practice interests focus on the geographies of gateways and destinations, with outcomes intentionally guided by local context and place. Current engagements center around balancing recreational access and resource protection at the interface of infrastructure and wilderness.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/1d06-400o400o1-KfortWRFiEXWrjM1aCu8Tz.jpg" alt="Andrew Dawson's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:30pm - 02:15pm</div>
+            <div class="event-title"><a href="#">Mariposa / Yosemite Mobility & Housing Strategy</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-a00bbc31-13ab-49f9-9225-f7bb2a237c5c, 35fe1e86-09e5-415b-997d-fb5b3f726161')">Ben Goger</a>
+            </div>
+        </div>
+        
+        <div id="modal-a00bbc31-13ab-49f9-9225-f7bb2a237c5c, 35fe1e86-09e5-415b-997d-fb5b3f726161" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-a00bbc31-13ab-49f9-9225-f7bb2a237c5c, 35fe1e86-09e5-415b-997d-fb5b3f726161')">&times;</span>
+                <h2>Ben Goger</h2>
+                <p><strong>Email:</strong> bgoger@mariposacounty.org</p>
+                <p><strong>Title/Organization:</strong> Senior Planer: Community Development </p>
+                <p><strong>Bio:</strong> A community developer in Mariposa County government specializing in community benefit projects. Drawing from a background of Anthropology and Ecology Ben couples a rich understanding of California complex systems with local government regulation to develop contextualized projects and policies.  Current projects include affordable neighborhoods, tribal strategic planning, active transportation, housing policy and creative placemaking</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/a174-400o400o1-3CyDevEUwVUjgmUNSHYBGP.jpg" alt="Ben Goger's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:30pm - 02:15pm</div>
+            <div class="event-title"><a href="#">Collaborative Assessment & Action</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-afefb1b7-39e3-4180-8c88-20722bddd316, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">Susan Elks, AICP</a>
+            </div>
+        </div>
+        
+        <div id="modal-afefb1b7-39e3-4180-8c88-20722bddd316, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-afefb1b7-39e3-4180-8c88-20722bddd316, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">&times;</span>
+                <h2>Susan Elks, AICP</h2>
+                <p><strong>Email:</strong> susanstillelks@gmail.com</p>
+                <p><strong>Title/Organization:</strong> Balancing Nature & Commerce</p>
+                <p><strong>Bio:</strong> Through her work Susan Elks, AICP advances collaborative planning and placemaking that balances conservation and economic opportunity, building lasting results for vibrant communities and their natural, cultural, and recreation assets. Currently serving as Program Manager, Balancing Nature & Commerce for The Conservation Fund, Susan previously was a public sector county planner, directing a team of staff on land use, housing, open space, historic resource, and urban planning topics at the county and individual municipality level.  Through her work Susan engages with diverse parties, facilitates processes and consensus building, and develops implementable planning documents. Susan is an alumnus of the Rural-Urban Leadership program of Penn State Extension, a Senior Fellow with the Environmental Leadership Program, and has completed extensive training in mediation and facilitation. She holds a Master’s in Geography, a Bachelor’s in Environmental Studies, and is a certified planner with the American Institute of Certified Planners.</p>
+                <p><strong>Website:</strong> <a href="https://www.gatewayforward.com" target="_blank">https://www.gatewayforward.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/susan-elks-aicp/" target="_blank">https://www.linkedin.com/in/susan-elks-aicp/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/ec73-400o400o1-UiGsbpnTPh4K7tRk92fQiB.jpg" alt="Susan Elks, AICP's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:30pm - 02:15pm</div>
+            <div class="event-title"><a href="#">Collaborative Assessment & Action</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-afefb1b7-39e3-4180-8c88-20722bddd316, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">Thomas Dansie</a>
+            </div>
+        </div>
+        
+        <div id="modal-afefb1b7-39e3-4180-8c88-20722bddd316, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-afefb1b7-39e3-4180-8c88-20722bddd316, ba3c1e67-891f-44ff-9c4d-8b51ec5351bc')">&times;</span>
+                <h2>Thomas Dansie</h2>
+                <p><strong>Email:</strong> tdansie@springdale.utah.gov</p>
+                <p><strong>Title/Organization:</strong> Director of Community Development, Town of Springdale, Utah</p>
+                <p><strong>Bio:</strong> Thomas Dansie is the Director of Community Development in the Town of Springdale, Utah--the gateway to Zion National Park. Tom's work includes addressing detailed and specific gateway community issues in Springdale, as well as collaborating with regional partners on general gateway issues in the greater Zion area. Tom has been an active organizer and participant in collaborative community planning efforts in the Zion area for the past 20 years.</p>
+                <p><strong>Website:</strong> <a href="https://www.springdaletown.com" target="_blank">https://www.springdaletown.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/3081-400o400o1-MCmvVdMUMNz8d2Sy1yxCZ7.jpg" alt="Thomas Dansie's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        </div><div class="day-section"><div class="day-title">Fri</div>
+        <div class="event">
+            <div class="event-time">09:00am - 10:00am</div>
+            <div class="event-title"><a href="#">PLENARY: Chip Jenkins, Superintendent, Grand Teton National Park</a></div>
+            <div class="event-room">Room: Star Hall</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-efd96094-6177-4d67-b0b3-a5d51c8ff71b')">Chip Jenkins</a>
+            </div>
+        </div>
+        
+        <div id="modal-efd96094-6177-4d67-b0b3-a5d51c8ff71b" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-efd96094-6177-4d67-b0b3-a5d51c8ff71b')">&times;</span>
+                <h2>Chip Jenkins</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Superintendent, Grand Teton National Park </p>
+                <p><strong>Bio:</strong> Chip has more than 38 years of experience working in and leading national parks including serving as superintendent at Mount Rainier National Park, North Cascades National Park, Lewis and Clark National Historical Park and Acting Superintendent at Yosemite National Park.  He also served as the Deputy Regional Director based in Seattle WA supervising the NPS units and programs throughout the Pacific Northwest.  He has served as a Special Assistant to two NPS Directors at NPS headquarters in Washington DC. He began his career as a seasonal ranger at North Cascades National Park and has also worked at Santa Monica Mountains National Recreation Area in CA and Black Canyon of the Gunnison National Park in CO. Chip’s wife, Laurie, also works for the National Park Service’s in the DC based National Natural Landmark Program.  They have two sons in their 20’s both of whom are pursuing careers in public service.  Chip and Laurie love to explore all public lands by hiking, skiing, paddling, biking, and camping.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/7b97-400o400o1-XzPHt8PyWkZonat8Tk6DMK.jpg" alt="Chip Jenkins's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 10:50am</div>
+            <div class="event-title"><a href="#">Destination Stewardship: As Told By North Lake Tahoe</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-2dd18899-2d63-4d7c-9fbd-c633b4d16a56')">Tara Hetz</a>
+            </div>
+        </div>
+        
+        <div id="modal-2dd18899-2d63-4d7c-9fbd-c633b4d16a56" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-2dd18899-2d63-4d7c-9fbd-c633b4d16a56')">&times;</span>
+                <h2>Tara Hetz</h2>
+                <p><strong>Email:</strong> tara@northtahoecommunityalliance.com</p>
+                <p><strong>Title/Organization:</strong> North Tahoe Community Alliance- Grant Framework Manager</p>
+                <p><strong>Bio:</strong> As the NTCA Grant Framework Manager, Tara develops critical collaborative relationships. She works to convene and participate with partners such as but not limited to, NTCA committees, NTCA Board of Directors, TBID members, Placer County staff and Board of Supervisors, and other key stakeholders such as federal, state, regional and local agencies and public. She is responsible for managing key funding strategies and opportunities to fulfill community projects in the NTCA’s TOT-TBID Dollars At Work Grant Program. She has a background in Sustainable Tourism and Conservation Biology. She loves to travel and has spent most of her life abroad.</p>
+                <p><strong>Website:</strong> <a href="https://www.northtahoecommunityalliance.com/who-we-are/staff/" target="_blank">https://www.northtahoecommunityalliance.com/who-we-are/staff/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tara-hetz-660b5255/" target="_blank">https://www.linkedin.com/in/tara-hetz-660b5255/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/84cd-400o400o1-M2aWJLnYsXcdYUynHHX5sn.jpg" alt="Tara Hetz's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 11:15am</div>
+            <div class="event-title"><a href="#">The Who, What and Where of Workforce Housing in Grand County</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-b73fc9f9-6488-46a4-8d50-313f63afefd6, 8fa7b8bf-e185-4f2d-9000-c39bb88795ea')">Amy Weiser</a>
+            </div>
+        </div>
+        
+        <div id="modal-b73fc9f9-6488-46a4-8d50-313f63afefd6, 8fa7b8bf-e185-4f2d-9000-c39bb88795ea" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-b73fc9f9-6488-46a4-8d50-313f63afefd6, 8fa7b8bf-e185-4f2d-9000-c39bb88795ea')">&times;</span>
+                <h2>Amy Weiser</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Grand County</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/65d1-400o400o1-44pm1SNHkvJzVSHuyyDCbJ.png" alt="Amy Weiser's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:25am - 11:15am</div>
+            <div class="event-title"><a href="#">The Who, What and Where of Workforce Housing in Grand County</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-b73fc9f9-6488-46a4-8d50-313f63afefd6, 8fa7b8bf-e185-4f2d-9000-c39bb88795ea')">Machael Layton</a>
+            </div>
+        </div>
+        
+        <div id="modal-b73fc9f9-6488-46a4-8d50-313f63afefd6, 8fa7b8bf-e185-4f2d-9000-c39bb88795ea" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-b73fc9f9-6488-46a4-8d50-313f63afefd6, 8fa7b8bf-e185-4f2d-9000-c39bb88795ea')">&times;</span>
+                <h2>Machael Layton</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Grand County</p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Machael Layton's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">10:50am - 11:15am</div>
+            <div class="event-title"><a href="#">Collaborative Governance Models for Recreation and Destination Management in Gateway Communities</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-5262d70c-f1b1-4145-bdd4-61dbf95b9f24')">Melanie  Armstrong </a>
+            </div>
+        </div>
+        
+        <div id="modal-5262d70c-f1b1-4145-bdd4-61dbf95b9f24" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-5262d70c-f1b1-4145-bdd4-61dbf95b9f24')">&times;</span>
+                <h2>Melanie  Armstrong </h2>
+                <p><strong>Email:</strong> melanie.armstrong@uwyo.edu</p>
+                <p><strong>Title/Organization:</strong> Director, Ruckelshaus Institute </p>
+                <p><strong>Bio:</strong> Melanie Armstrong is the Director of the Ruckelshaus Institute and an Associate Professor in the Haub School of Natural Resources at the University of Wyoming. In these roles she aims to integrate scholarship and collaborative practice to enable creative, scientific, and community-driven responses to land management challenges. She researches how social systems are built around shifting ideologies of nature and is the author of Germ Wars: The Politics of Nature and America’s Landscape of Fear and co-author of Environmental Realism: Challenging Solutions. Her 15-year career with the National Park Service also provided a laboratory for exploring complex natural resources issues in the landscapes of the American West.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/a2e4-400o400o1-4UiafRT3ewdx2tB8g56FyH.jpg" alt="Melanie  Armstrong 's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:30am - 12:00pm</div>
+            <div class="event-title"><a href="#">The Poop Problem: Tackling Human Waste with The Moab Human Waste Initiative</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-2bbb674d-8239-4eac-a8ec-6f1bac064022')">Mariah Ward</a>
+            </div>
+        </div>
+        
+        <div id="modal-2bbb674d-8239-4eac-a8ec-6f1bac064022" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-2bbb674d-8239-4eac-a8ec-6f1bac064022')">&times;</span>
+                <h2>Mariah Ward</h2>
+                <p><strong>Email:</strong> healthytrails@grandcountyutah.net</p>
+                <p><strong>Title/Organization:</strong> Healthy Trails Coordinator - Grand County Active Transportation & Trails </p>
+                <p><strong>Bio:</strong> As the Healthy Trails Coordinator in Grand County, Utah, my journey from dodging beach balls as an ocean lifeguard in New York to showing folks how to handle their 'nature's calls' with finesse has been quite the adventure. Since 2019, I’ve enjoyed educating visitors about the intricacies of the desert landscapes of Utah. Whether I was diving into the waves or diving into the subtleties of WAG Bag usage, I've always been knee-deep in keeping things safe and sustainable. From making waves to handling 'number twos,' I'm committed to making outdoor experiences both enjoyable and eco-friendly for all!</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/4dc8-400o400o1-fsh8s7jbrZc9cVAEMQzgg6.jpg" alt="Mariah Ward's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">11:30am - 12:00pm</div>
+            <div class="event-title"><a href="#">Balancing housing needs and open space in a GNAR community</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-21cd1fd1-0fe2-407d-b172-fb336a7f6e1a')">Cece  Osborn</a>
+            </div>
+        </div>
+        
+        <div id="modal-21cd1fd1-0fe2-407d-b172-fb336a7f6e1a" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-21cd1fd1-0fe2-407d-b172-fb336a7f6e1a')">&times;</span>
+                <h2>Cece  Osborn</h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> Community Planning Director, Wood River Land Trust</p>
+                <p><strong>Bio:</strong> Cece grew up splitting her time between Los Angeles and the foothills of the southern Sierra Nevada Mountains. Those early experiences seeded her interest in urban-rural divides and planning solutions that bridge communities. During her undergraduate and masters degrees, she studied human-environment dynamics on the micro-level: how outdoor-based classrooms benefit children’s development. Since then, she has expanded her focus to such dynamics on a larger scale: transportation and land-use planning locally and regionally. Cece enjoys engaging stakeholders up and down the valley where she lives in south-central Idaho. Cece enjoys her neighbors as much as she enjoys living in a small town and playing in the vast swaths of wilderness that surround her home.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/51c9-400o400o1-TjBVETL5MBiPN9WM2gwV79.jpg" alt="Cece  Osborn's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:10pm - 01:55pm</div>
+            <div class="event-title"><a href="#">Trail to Tomorrow: Gateway Community Driven Strategic Planning</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-80263061-aa3c-4a0a-9d03-74b32324f5f1')">Jeremy Sage</a>
+            </div>
+        </div>
+        
+        <div id="modal-80263061-aa3c-4a0a-9d03-74b32324f5f1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-80263061-aa3c-4a0a-9d03-74b32324f5f1')">&times;</span>
+                <h2>Jeremy Sage</h2>
+                <p><strong>Email:</strong> jeremy@rrcassociates.com</p>
+                <p><strong>Title/Organization:</strong> Director of Economics and Tourism Research, RRC Associates</p>
+                <p><strong>Bio:</strong> Jeremy specializes in tourism & recreation economics, visitor use management, regional economic analysis, as well as survey development, deployment, and analysis. He brings more than ten years of post-Ph.D. experience in socioeconomic-based actionable research. As an economic geographer by training, he approaches his projects through a lens of all things being connected through space; whether this is through the sharing of physical land or economic interdependency.
+
+Jeremy currently leads multiple projects under the National Park Service’s nationwide socioeconomic research contract, including those that seek to place economic and social value on lands, and wildlife. Additionally, he leads projects involving Market Assessment and Planning of tourism and recreation regions, assets, and investments.
+
+Prior to coming to RRC in 2022, Jeremy led the Institute for Tourism and Recreation Research at the University of Montana, where he directed annual projects to estimate statewide visitor spending and profiles, as well as an assortment of niche tourism studies. He also spent time as the Associate Director of the Freight Policy Transportation Institute at Washington State University, conducting infrastructure investment studies for several State Departments of Transportation and the USDA.
+
+Jeremy holds an Interdisciplinary Ph.D. (Economics, Geography, and Rural Sociology) from Washington State University, an M.S. in Human Dimension of Ecosystem Science and Management from Utah State University, and a B.S. in Ecology from Washington State University. Jeremy is a firm believer that research is ‘me-search’, thus his draw to all things outdoor recreation, living in Missoula, Montana, and 40+ triathlons.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/e909-400o400o1-nBBBL8sFP7XNefe2L1HE2R.jpg" alt="Jeremy Sage's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:10pm - 01:55pm</div>
+            <div class="event-title"><a href="#">Pedestrianization of Banff Avenue</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-6b06b82c-b287-4450-9703-933730cbafbf')">Grant Canning</a>
+            </div>
+        </div>
+        
+        <div id="modal-6b06b82c-b287-4450-9703-933730cbafbf" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-6b06b82c-b287-4450-9703-933730cbafbf')">&times;</span>
+                <h2>Grant Canning</h2>
+                <p><strong>Email:</strong> grant_canning@hotmail.com</p>
+                <p><strong>Title/Organization:</strong> Town of Banff - Town Councillor</p>
+                <p><strong>Bio:</strong> Grant has lived in Banff since 2006 and has been a Town Councillor for the Town of Banff since 2010 currently serving his fourth term. He has been a small business owner, worked in the local ski industry and is currently a PhD student with the University of Manitoba studying what Visitor Use Management strategies have been created and implemented, and how effective have they been, in addressing vehicle traffic congestion in national parks, protected areas and gateway communities.</p>
+                <p><strong>Website:</strong> <a href="https://www.banff.ca" target="_blank">https://www.banff.ca</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/grant-canning-a897a449/" target="_blank">https://www.linkedin.com/in/grant-canning-a897a449/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/2109-400o400o1-Qv2raTnSZYW4qnMM28qj6M.jpg" alt="Grant Canning's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:55pm - 02:40pm</div>
+            <div class="event-title"><a href="#">The Western Planner: A Unique Educational Resource for Rural Planners in the West</a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-020a1d5c-8ea9-4384-aa5d-f42b90b3584f')">Brian Carver</a>
+            </div>
+        </div>
+        
+        <div id="modal-020a1d5c-8ea9-4384-aa5d-f42b90b3584f" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-020a1d5c-8ea9-4384-aa5d-f42b90b3584f')">&times;</span>
+                <h2>Brian Carver</h2>
+                <p><strong>Email:</strong> brianc@brag.utah.gov</p>
+                <p><strong>Title/Organization:</strong> Western Planner Resources Utah Representative and Community Development Director at Bear River Association of Governments</p>
+                <p><strong>Bio:</strong> Brian has been helping small towns in rural Utah set goals and plan for the future for over 20 years.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/6b00-400o400o1-LZd99FVAai8QYNoMMCwCS5.jpg" alt="Brian Carver's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">01:55pm - 02:40pm</div>
+            <div class="event-title"><a href="#">Trying to Build Housing in a Small Town</a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-0d0a5a03-4da0-4d7f-b9d3-f05102d49640')">Kenny Fallon Jr</a>
+            </div>
+        </div>
+        
+        <div id="modal-0d0a5a03-4da0-4d7f-b9d3-f05102d49640" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-0d0a5a03-4da0-4d7f-b9d3-f05102d49640')">&times;</span>
+                <h2>Kenny Fallon Jr</h2>
+                <p><strong>Email:</strong> kenny@ruralandproud.org</p>
+                <p><strong>Title/Organization:</strong> Project Manager at Epicenter</p>
+                <p><strong>Bio:</strong> Kenny is a designer and writer exploring place-based living in rural and urban hinterlands in a changing climate. He leads affordable housing projects at Epicenter, and helps publish The Last Straw magazine and The Green River Observer newspaper. 
+
+While he currently lives in the remote high desert town of Green River, Utah, he was born and raised in New Orleans and throughout the South. He received his Bachelors of Architecture and Interior Architecture from Auburn University, and completed his 20K Home thesis project at Auburn's Rural Studio design/build program. He has previously worked as Planning and Development Coordinator at Community Rebuilds and as a Project Coordinator at Marx|Okubo Associates. Kenny can be reached at kenny@ruralandproud.org.
+
+Since 2009, Epicenter has stewarded creative initiatives that combine art, architecture, and rural investment in order to build a more resilient, equitable, and vibrant local community.  Epicenter works on multiple scales —from nation-wide knowledge building all the way down to the construction details on a single-family house.</p>
+                <p><strong>Website:</strong> <a href="https://www.ruralandproud.org " target="_blank">https://www.ruralandproud.org </a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/9b25-400o400o1-4NJ8eZos7FRavSyhdwr52V.jpg" alt="Kenny Fallon Jr's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">03:00pm - 04:00pm</div>
+            <div class="event-title"><a href="#">Existing and Ongoing Research for Gateway and Natural Amenity Communities </a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-8dcec211-5d2b-43dc-918f-aa07a974ebd5, 0b12ed71-b8b9-44b5-894a-105de22ee6bb')">Philip Stoker </a>
+            </div>
+        </div>
+        
+        <div id="modal-8dcec211-5d2b-43dc-918f-aa07a974ebd5, 0b12ed71-b8b9-44b5-894a-105de22ee6bb" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-8dcec211-5d2b-43dc-918f-aa07a974ebd5, 0b12ed71-b8b9-44b5-894a-105de22ee6bb')">&times;</span>
+                <h2>Philip Stoker </h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> </p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Philip Stoker 's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">03:00pm - 04:00pm</div>
+            <div class="event-title"><a href="#">Existing and Ongoing Research for Gateway and Natural Amenity Communities </a></div>
+            <div class="event-room">Room: MARC Room 1</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-8dcec211-5d2b-43dc-918f-aa07a974ebd5, 0b12ed71-b8b9-44b5-894a-105de22ee6bb')">Lindsey  Romaniello </a>
+            </div>
+        </div>
+        
+        <div id="modal-8dcec211-5d2b-43dc-918f-aa07a974ebd5, 0b12ed71-b8b9-44b5-894a-105de22ee6bb" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-8dcec211-5d2b-43dc-918f-aa07a974ebd5, 0b12ed71-b8b9-44b5-894a-105de22ee6bb')">&times;</span>
+                <h2>Lindsey  Romaniello </h2>
+                <p><strong>Email:</strong> </p>
+                <p><strong>Title/Organization:</strong> </p>
+                <p><strong>Bio:</strong> nan</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="nan" alt="Lindsey  Romaniello 's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">03:00pm - 04:00pm</div>
+            <div class="event-title"><a href="#">The GNAR Academy - Online Education Tailored for Rural Gateway Communities </a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-ab26cee2-d25f-4984-bea1-0d5e0ca79c48, b860b60f-1a35-4127-8dcb-716b634f58f2')">Elizabeth Sodja</a>
+            </div>
+        </div>
+        
+        <div id="modal-ab26cee2-d25f-4984-bea1-0d5e0ca79c48, b860b60f-1a35-4127-8dcb-716b634f58f2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-ab26cee2-d25f-4984-bea1-0d5e0ca79c48, b860b60f-1a35-4127-8dcb-716b634f58f2')">&times;</span>
+                <h2>Elizabeth Sodja</h2>
+                <p><strong>Email:</strong> liz.sodja@usu.edu</p>
+                <p><strong>Title/Organization:</strong> Program Coordinator, The Gateway & Natural Amenity Region (GNAR) Initiative</p>
+                <p><strong>Bio:</strong> Elizabeth Sodja, MNR, MCMP, is the Program Coordinator for the Gateway & Natural Amenity Region (GNAR) Initiative at Utah State University (USU) Extension. She has a decade of communications and community outreach experience, and has worked with federal, state, and local government agencies. Before joining GNAR, she worked for USU's Center for Community Engagement and the National Park Service. She grew up in a small town in Utah where most family vacations were either camping, fishing, or in a National Park, and has a passion for helping small towns around the west preserve what is special about them. When she isn't working, you can usually find her and her husband climbing a rock, living out of a tent, or driving down a dirt road covered in dog hair.</p>
+                <p><strong>Website:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>LinkedIn:</strong> <a href="" target="_blank"></a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/d6fc-400o400o1-BbgMAYHQSEBqJxgq8eCcGY.jpg" alt="Elizabeth Sodja's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        
+        <div class="event">
+            <div class="event-time">03:00pm - 04:00pm</div>
+            <div class="event-title"><a href="#">The GNAR Academy - Online Education Tailored for Rural Gateway Communities </a></div>
+            <div class="event-room">Room: MARC Room 2</div>
+            <div class="event-speakers">
+                Speaker: <a href="javascript:void(0)" onclick="openModal('modal-ab26cee2-d25f-4984-bea1-0d5e0ca79c48, b860b60f-1a35-4127-8dcb-716b634f58f2')">Jordan Katcher</a>
+            </div>
+        </div>
+        
+        <div id="modal-ab26cee2-d25f-4984-bea1-0d5e0ca79c48, b860b60f-1a35-4127-8dcb-716b634f58f2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-ab26cee2-d25f-4984-bea1-0d5e0ca79c48, b860b60f-1a35-4127-8dcb-716b634f58f2')">&times;</span>
+                <h2>Jordan Katcher</h2>
+                <p><strong>Email:</strong> jordan.katcher@law.utah.edu</p>
+                <p><strong>Title/Organization:</strong> University of Utah - Environmental Dispute Resolution Program, Facilitator</p>
+                <p><strong>Bio:</strong> Jordan Katcher (she/her) is an Initiatives Facilitator within the Wallace Stegner Center’s Environmental Dispute Resolution (EDR) Program and an Adjunct Instructor within the City + Metropolitan Planning Department at the University of Utah. She serves as facilitator for the Gateway + Natural Amenity Region (GNAR) Initiative, facilitates community conversations, mentors students, conducts situation assessments, and provides training and coaching related to conflict management and collaborative process design. Outside of work, she enjoys forest bathing, baking sourdough bread, traveling, laughing with loved ones, and practicing gratitude.</p>
+                <p><strong>Website:</strong> <a href="https://www.law.utah.edu/stegner-center/edr/" target="_blank">https://www.law.utah.edu/stegner-center/edr/</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jordankatcher/" target="_blank">https://www.linkedin.com/in/jordankatcher/</a></p>
+                <p><strong>Twitter:</strong> <a href="" target="_blank"></a></p>
+                <img src="https://sessionize.com/image/b0a9-400o400o1-VLsvAD5juaCGnbcLebhcEv.jpg" alt="Jordan Katcher's headshot" style="width:100px;height:auto;border-radius:50%;">
+            </div>
+        </div>
+        </div><div class="day-section"><div class="day-title">Sat</div></div><div class="day-section"><div class="day-title">Sun</div></div>
+    </div>
+</body>
+</html>
